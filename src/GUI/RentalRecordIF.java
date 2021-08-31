@@ -584,12 +584,12 @@ ArrayList<Product> productstemplist = new ArrayList<>();
                                 rentPerDayTextField.setText(Double.toString(product.getRentPerDay()));
                                 productStatusComboBox.setActionCommand(product.getStatus());
                                
-//                                DefaultTableModel model = (DefaultTableModel)productListTable.getModel();
-//                                model.setRowCount(0);
-//                                Object[] rowData = new Object[2];
-//                                rowData[0]=p.getProductSerialNumber();
-//                                rowData[1]=p.getRentPerDay();
-//                                model.addRow(rowData);
+                                DefaultTableModel model = (DefaultTableModel)productListTable.getModel();
+                                model.setRowCount(0);
+                                Object[] rowData = new Object[2];
+                                rowData[0]=p.getProductSerialNumber();
+                                rowData[1]=p.getRentPerDay();
+                                model.addRow(rowData);
                             }
                        }    
 //                   products = productstemplist;
