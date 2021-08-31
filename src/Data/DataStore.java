@@ -16,6 +16,7 @@ import java.util.Date;
  *
  * @author happy
  */
+//just a comment
 public class DataStore {
     private static ArrayList<Product> products= new ArrayList<>();
     private static ArrayList<Customer> customers= new ArrayList<>();
