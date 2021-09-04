@@ -26,6 +26,8 @@ Product product = null;
 
 ArrayList<Product> rentalProducts = new ArrayList<>();
 
+ArrayList<Product> returnProducts = new ArrayList<>();
+
     /**
      * Creates new form RentalRecordIF
      */
@@ -43,24 +45,16 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
+        RentalPanel = new javax.swing.JPanel();
         returnRadioButton = new javax.swing.JRadioButton();
         rentradioButton = new javax.swing.JRadioButton();
-        productModelTextField = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        rentPerDayTextField = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         customerRecordTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         CustomerNameTextField = new javax.swing.JTextField();
         totalRentTextField = new javax.swing.JTextField();
         customerRentalHistoryLable = new javax.swing.JLabel();
-        ProductStatusLable = new javax.swing.JLabel();
-        productStatusComboBox = new javax.swing.JComboBox<>();
-        productNameTextField = new javax.swing.JTextField();
-        productnameLabel = new javax.swing.JLabel();
         phoneTextField = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -81,10 +75,11 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
         clearButton = new javax.swing.JButton();
         showAllProductsButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "LoveGuitarRentalRecords", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
-        jPanel1.setPreferredSize(new java.awt.Dimension(813, 705));
+        RentalPanel.setBackground(new java.awt.Color(204, 204, 204));
+        RentalPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "LoveGuitarRentalRecords", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        RentalPanel.setPreferredSize(new java.awt.Dimension(813, 705));
 
         returnRadioButton.setBackground(new java.awt.Color(204, 204, 204));
         buttonGroup1.add(returnRadioButton);
@@ -99,6 +94,7 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
         rentradioButton.setBackground(new java.awt.Color(204, 204, 204));
         buttonGroup1.add(rentradioButton);
         rentradioButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        rentradioButton.setSelected(true);
         rentradioButton.setText("Rent Item");
         rentradioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,18 +102,8 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
             }
         });
 
-        productModelTextField.setEditable(false);
-
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("Customer Name:");
-
-        rentPerDayTextField.setEditable(false);
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setText("Model:");
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setText("Rent Per Day:");
 
         customerRecordTable.setBackground(new java.awt.Color(153, 204, 255));
         customerRecordTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -125,7 +111,7 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
 
             },
             new String [] {
-                "Product List", "Rent Per Day", "Date", "Return Date"
+                "Product List", "Rent Per Day", "Date", "Return Due Date"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -146,34 +132,12 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
         totalRentTextField.setEditable(false);
 
         customerRentalHistoryLable.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        customerRentalHistoryLable.setText("Customer Rental History");
-
-        ProductStatusLable.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        ProductStatusLable.setText("Status:");
-
-        productStatusComboBox.setBackground(new java.awt.Color(204, 204, 204));
-        productStatusComboBox.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        productStatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Rented" }));
-        productStatusComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productStatusComboBoxActionPerformed(evt);
-            }
-        });
-
-        productNameTextField.setEditable(false);
-        productNameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                productNameTextFieldActionPerformed(evt);
-            }
-        });
-
-        productnameLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        productnameLabel.setText("Year of Manuf.");
+        customerRentalHistoryLable.setText("Currently rented Products by Customer");
 
         phoneTextField.setEditable(false);
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel11.setText("Total to Pay:");
+        jLabel11.setText("Total rent for all items:");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Select return Date:");
@@ -232,6 +196,11 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
         jLabel9.setText("Date Of Birth:");
 
         addressTextField.setEditable(false);
+        addressTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addressTextFieldActionPerformed(evt);
+            }
+        });
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("Address:");
@@ -241,7 +210,7 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
 
             },
             new String [] {
-                "Product Serial No.", "RentPerDay", "Year of manuf.", "Status"
+                "Product Serial No.", "RentPerDay", "Year of manuf.", "Colour"
             }
         ) {
             Class[] types = new Class [] {
@@ -282,171 +251,165 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
         });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel5.setText("Show All Products");
+        jLabel5.setText("Available Products in Store");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setText("Love Guitar Rental Management System");
+
+        javax.swing.GroupLayout RentalPanelLayout = new javax.swing.GroupLayout(RentalPanel);
+        RentalPanel.setLayout(RentalPanelLayout);
+        RentalPanelLayout.setHorizontalGroup(
+            RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RentalPanelLayout.createSequentialGroup()
+                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RentalPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(customerRentalHistoryLable)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(dateOfBirthTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CustomerNameTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(SearchCustomerButton))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(rentradioButton)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(returnRadioButton))
-                                .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(returnItemDatePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(phoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addGap(163, 163, 163)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(clearButton)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(showAllProductsButton))
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(productnameLabel)
-                                    .addGap(24, 24, 24))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel6)
-                                        .addComponent(jLabel4)
-                                        .addComponent(ProductStatusLable)
-                                        .addComponent(jLabel11))
-                                    .addGap(18, 18, 18))))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(SearchProductButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ProductIdTextField, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(productModelTextField)
-                            .addComponent(rentPerDayTextField)
-                            .addComponent(productStatusComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(totalRentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(productNameTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(225, Short.MAX_VALUE))
+                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(customerRentalHistoryLable))
+                            .addGroup(RentalPanelLayout.createSequentialGroup()
+                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(RentalPanelLayout.createSequentialGroup()
+                                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(RentalPanelLayout.createSequentialGroup()
+                                                .addComponent(jLabel9)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(dateOfBirthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(RentalPanelLayout.createSequentialGroup()
+                                                .addComponent(jLabel8)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(CustomerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RentalPanelLayout.createSequentialGroup()
+                                                .addComponent(jLabel1)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(phoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(RentalPanelLayout.createSequentialGroup()
+                                                .addComponent(jLabel12)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(RentalPanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(116, 116, 116)
+                                        .addComponent(SearchCustomerButton)))
+                                .addGap(1, 1, 1)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 57, Short.MAX_VALUE)
+                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RentalPanelLayout.createSequentialGroup()
+                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(RentalPanelLayout.createSequentialGroup()
+                                        .addGap(72, 72, 72)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addGap(18, 18, 18)
+                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(totalRentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(RentalPanelLayout.createSequentialGroup()
+                                        .addComponent(ProductIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(SearchProductButton))))
+                            .addGroup(RentalPanelLayout.createSequentialGroup()
+                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(RentalPanelLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RentalPanelLayout.createSequentialGroup()
+                                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(RentalPanelLayout.createSequentialGroup()
+                                                .addComponent(jLabel5)
+                                                .addGap(82, 82, 82)
+                                                .addComponent(showAllProductsButton)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(clearButton)))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RentalPanelLayout.createSequentialGroup()
+                                        .addComponent(rentradioButton)
+                                        .addGap(52, 52, 52)
+                                        .addComponent(returnRadioButton)
+                                        .addGap(35, 35, 35)
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(returnItemDatePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RentalPanelLayout.createSequentialGroup()
+                        .addGap(367, 367, 367)
+                        .addComponent(jLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(21, 21, 21))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ProductIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(SearchProductButton)
-                .addGap(5, 5, 5)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(productnameLabel)
-                    .addComponent(productNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(productModelTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rentPerDayTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(productStatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ProductStatusLable))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(totalRentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(showAllProductsButton)
-                    .addComponent(customerRentalHistoryLable)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(clearButton)
-                .addGap(84, 84, 84))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(SearchCustomerButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(CustomerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(dateOfBirthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addressTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(phoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+        RentalPanelLayout.setVerticalGroup(
+            RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RentalPanelLayout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(RentalPanelLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(SearchCustomerButton)
+                            .addComponent(idTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10))
+                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(RentalPanelLayout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(totalRentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11)))
+                            .addGroup(RentalPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(CustomerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12)
+                                    .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(7, 7, 7)
+                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel9)
+                                    .addComponent(dateOfBirthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(phoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(41, 41, 41)
+                        .addComponent(customerRentalHistoryLable)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1))
+                    .addGroup(RentalPanelLayout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ProductIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SearchProductButton))
+                        .addGap(92, 92, 92)
+                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(showAllProductsButton)
+                                .addComponent(clearButton)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rentradioButton)
+                    .addComponent(returnRadioButton)
                     .addComponent(returnItemDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rentradioButton)
-                    .addComponent(returnRadioButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(submitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(submitButton)
+                .addGap(54, 54, 54))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1458, Short.MAX_VALUE)
+            .addComponent(RentalPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1194, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 860, Short.MAX_VALUE)
+            .addComponent(RentalPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 851, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -460,13 +423,16 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
         ArrayList<Product>productList=DataStore.getProducts();
         {for(Product p : productList)
             {
-                if(p.getStatus().equals(productStatusComboBox.getSelectedItem()))
-                {
+                if(p.getStatus().equals("Available"))
+                { 
+                    rentalProducts.clear();
+                    rentalProducts.add(p);
                     rows[0]= p.getProductSerialNumber();
                     rows[1]= p.getRentPerDay();
                     rows[2]=p.getYearOfManufacturer();
                     rows[3]=p.getStatus();
                     model.addRow(rows);
+                    
 
                 }
 
@@ -478,6 +444,7 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel)productListTable.getModel();
         model.setRowCount(0);
+        rentalProducts.clear();
     }//GEN-LAST:event_clearButtonActionPerformed
 
     private void SearchCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchCustomerButtonActionPerformed
@@ -497,12 +464,17 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
             DefaultTableModel model = (DefaultTableModel)customerRecordTable.getModel();
             model.setRowCount(0);
             ArrayList<RentalRecord> rentalrecordlist = customer.getRentalRecords();
+            returnProducts.clear();
+            if(rentalrecordlist.isEmpty() == false)
+            {
             for(RentalRecord r : rentalrecordlist)
             {
                 ArrayList<Product> plist = r.getProductList();
                 for(Product p : plist)
                 {
-
+                    if(p.getStatus().equals("Rented"))
+                    {
+                    returnProducts.add(p);
                     Object[] rowData = new Object[4];
 
                     SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -514,8 +486,9 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
                     rowData[2]=rentDate;
                     rowData[3]=returnDate;
                     model.addRow(rowData);
-
+                    }
                 }
+            }
             }
         }
     }//GEN-LAST:event_SearchCustomerButtonActionPerformed
@@ -524,8 +497,7 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
         // TODO add your handling code here:
 
         String searchProduct=ProductIdTextField.getText();
-        String productStatus=productStatusComboBox.getSelectedItem().toString();
-        product=DataStore.SearchProductbyProductId(searchProduct, productStatus);
+        product=DataStore.SearchProductbyProductId(searchProduct, "Available");
         
         
         if(product==null)
@@ -536,27 +508,23 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
         {
             Object[] rowData = new Object[4];
             DefaultTableModel model = (DefaultTableModel)productListTable.getModel();
-            int rowCount = productListTable.getRowCount();
             if(productListTable.getRowCount()== 0)
-            {  
+            {                       
                                     rowData[0]=product.getProductSerialNumber();
                                     rowData[1]=product.getRentPerDay();
                                     rowData[2]=product.getYearOfManufacturer();
                                     rowData[3]=product.getStatus();
                                     model.addRow(rowData);
+                                    rentalProducts.add(product);
             }
             else
             {
                           int indexs = productListTable.getRowCount();
-                          String value = "";
-                          String serialnumber;
-                             boolean valuefound = false;
-                            for (int i = 0; i < indexs; i++) 
+                          boolean valuefound = false;
+                          for (int i = 0; i < indexs; i++) 
                             {
                                
                                 Object[] row = new Object [productListTable.getRowCount()];
-                                // Loop through the rows
-                                // Record the 5th column value (index 4)
                                 row[i] = productListTable.getValueAt(i, 0);  
                                 if(product.getProductSerialNumber().equals(row[i]))
                                 {
@@ -575,6 +543,8 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
                                     rowData[2]=product.getYearOfManufacturer();
                                     rowData[3]=product.getStatus();
                                     model.addRow(rowData);
+                                    rentalProducts.add(product);
+                                    
                             }
                             }
             }
@@ -592,36 +562,27 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
 
     private void submitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitButtonActionPerformed
         // TODO add your handling code here:
-        if(customer == null || product == null)
+        if(rentradioButton.isSelected())
         {
-            JOptionPane.showMessageDialog(this, "please search Customer and Product First");
-        }
-        else if(product.getStatus().equals("Rented") && rentradioButton.isSelected() == true)
+        if(customer == null || rentalProducts.isEmpty())
         {
-            JOptionPane.showMessageDialog(this, "\tSorry\nProduct is already Rented");
-        }
-        else if(product.getStatus().equals("Rented") && returnRadioButton.isSelected() == true)
-        {
-            product.setStatus("Available");
-            DataStore.setProductStatus(product, product.getStatus());
-            JOptionPane.showMessageDialog(this, "Product has been returned.\nProduct Status: "+product.getStatus());
-        }
-        else if(product.getStatus().equals("Available") && returnRadioButton.isSelected() == true)
-        {
-            JOptionPane.showMessageDialog(this, "\tSorry\nProduct is not rented yet");
-        }
-        else if(returnRadioButton.isSelected() == false && rentradioButton.isSelected() == false)
-        {
-            JOptionPane.showMessageDialog(this, "Please choose rent or return option");
+            JOptionPane.showMessageDialog(this, "please search Customer and Products to rent First");
         }
         else if(returnItemDatePicker.getDate() == null)
         {
             JOptionPane.showMessageDialog(this,"Please choose return date of the Product.");
         }
 
-        else if(product.getStatus().equals("Available") && rentradioButton.isSelected() == true)
+        else if(rentradioButton.isSelected() && rentalProducts.isEmpty())
         {
-
+            JOptionPane.showMessageDialog(this, "Please search products to rent first");
+        }
+        else if(returnRadioButton.isSelected() && returnProducts.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Nothing to return at this stage");
+        }
+        else if(rentradioButton.isSelected() && rentalProducts.isEmpty() == false)
+        {
             Date rentDate = new Date();
             Date returnDate = returnItemDatePicker.getDate();
             long diff =  returnDate.getTime() - rentDate.getTime();
@@ -629,47 +590,103 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
             if(difference == 0)
             {
                 totalRentTextField.setText(Double.toString(product.getRentPerDay()));
-                ArrayList<Product> products = new ArrayList<>();
-                products.add(product);
-                RentalRecord rentalrecord = new RentalRecord(products, rentDate, returnDate);
+                
+                ArrayList<Product> templist = new ArrayList<>();
+                      for(Product p: rentalProducts)
+                      {
+                          templist.add(p);
+                      }
+                
+                rentalProducts.clear();
+                
+                for(Product p : templist)
+                {
+                    p.setStatus("Rented");
+                    rentalProducts.add(p);
+                }
+                
+                RentalRecord rentalrecord = new RentalRecord(rentalProducts, rentDate, returnDate);
                 customer.setRentalRecord(rentalrecord);
-                DataStore.setProductStatus(product, "Rented");
-                product.setStatus("Rented");
-                JOptionPane.showMessageDialog(this, "Product has been rented succussfully\n"+"Product Status: "+product.getStatus());
+                
+                
+
+                
+                for(Product p: rentalProducts)
+                {
+                   DataStore.setProductStatus(p, "Rented"); 
+                }           
+                JOptionPane.showMessageDialog(this, "Products have been rented succussfully");
+                rentalProducts.clear();
             }
             else if(difference > 0)
             {
                 totalRentTextField.setText(Double.toString(product.getRentPerDay() * (difference + 2)));
-                ArrayList<Product> products = new ArrayList<>();
-                products.add(product);
-                RentalRecord rentalrecord = new RentalRecord(products, rentDate, returnDate);
+                RentalRecord rentalrecord = new RentalRecord(rentalProducts, rentDate, returnDate);
                 customer.setRentalRecord(rentalrecord);
-                DataStore.setProductStatus(product, "Rented");
-                product.setStatus("Rented");
-                JOptionPane.showMessageDialog(this, "Product has been rented succussfully\n"+"Product Status: "+product.getStatus());
+                
+               ArrayList<Product> templist = new ArrayList<>();
+                      for(Product p: rentalProducts)
+                      {
+                          templist.add(p);
+                      }
+                
+                rentalProducts.clear();
+                
+                for(Product p : templist)
+                {
+                    p.setStatus("Rented");
+                    rentalProducts.add(p);
+                }
+                
+                
+                for(Product p: rentalProducts)
+                {
+                   DataStore.setProductStatus(p, "Rented"); 
+                }           
+                JOptionPane.showMessageDialog(this, "Products have been rented succussfully");
+                rentalProducts.clear();
 
             }
             else if(difference < 0)
             {
                 JOptionPane.showMessageDialog(this,"Return date cannot be in past.\n Please Select a Valid return date.");
-
             }
-        }   
+        }
+        }
+        else
+        {
         
-    
+        if(returnProducts.isEmpty() == false)
+        {
+//            ArrayList<RentalRecord> list = new ArrayList<>();
+            
+            for(RentalRecord r: customer.getRentalRecords())
+            {
+//                list.add(r);
+               ArrayList<Product> plist = r.getProductList();
+                for(Product p : plist)
+                {
+                    if(p.getStatus().equals("Rented"))
+                    {
+                        p.setStatus("Available");
+                    }
+                    
+                }
+            }
+            
+//             for(RentalRecord r : list)
+//            {
+                           
+//            }
+            
+        }
+        }
+  
     }//GEN-LAST:event_submitButtonActionPerformed
 
     private void returnItemDatePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnItemDatePickerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_returnItemDatePickerActionPerformed
-
-    private void productNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productNameTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productNameTextFieldActionPerformed
-
-    private void productStatusComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productStatusComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_productStatusComboBoxActionPerformed
 
     private void rentradioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentradioButtonActionPerformed
         // TODO add your handling code here:
@@ -679,11 +696,15 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
         // TODO add your handling code here:
     }//GEN-LAST:event_returnRadioButtonActionPerformed
 
+    private void addressTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addressTextFieldActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CustomerNameTextField;
     private javax.swing.JTextField ProductIdTextField;
-    private javax.swing.JLabel ProductStatusLable;
+    private javax.swing.JPanel RentalPanel;
     private javax.swing.JButton SearchCustomerButton;
     private javax.swing.JButton SearchProductButton;
     private javax.swing.JTextField addressTextField;
@@ -701,19 +722,12 @@ ArrayList<Product> rentalProducts = new ArrayList<>();
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField phoneTextField;
     private javax.swing.JTable productListTable;
-    private javax.swing.JTextField productModelTextField;
-    private javax.swing.JTextField productNameTextField;
-    private javax.swing.JComboBox<String> productStatusComboBox;
-    private javax.swing.JLabel productnameLabel;
-    private javax.swing.JTextField rentPerDayTextField;
     private javax.swing.JRadioButton rentradioButton;
     private org.jdesktop.swingx.JXDatePicker returnItemDatePicker;
     private javax.swing.JRadioButton returnRadioButton;
