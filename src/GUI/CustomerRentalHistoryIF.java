@@ -18,12 +18,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author happy
  */
-public class CustomerRentalHistory extends javax.swing.JInternalFrame {
+public class CustomerRentalHistoryIF extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form CustomerRentalHistory
      */
-    public CustomerRentalHistory() {
+    public CustomerRentalHistoryIF() {
         initComponents();
         Customer customer;
     }
@@ -44,6 +44,9 @@ public class CustomerRentalHistory extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         customerHistoryTable = new javax.swing.JTable();
         searchButton = new javax.swing.JButton();
+        clearButton = new javax.swing.JButton();
+
+        setPreferredSize(new java.awt.Dimension(1250, 950));
 
         customerRentalLable.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         customerRentalLable.setText("Customer Rental History");
@@ -59,7 +62,7 @@ public class CustomerRentalHistory extends javax.swing.JInternalFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 5, Short.MAX_VALUE)
         );
 
         customerHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -67,14 +70,14 @@ public class CustomerRentalHistory extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Product Serial No.", "Year of Manuf.", "Colour", "Rent Per day", "Date Rented", "Return Due Date", "Return Date"
+                "Product Serial No.", "Year of Manuf.", "Colour", "Rent Per day", "Date Rented", "Return Date"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -93,7 +96,6 @@ public class CustomerRentalHistory extends javax.swing.JInternalFrame {
             customerHistoryTable.getColumnModel().getColumn(3).setResizable(false);
             customerHistoryTable.getColumnModel().getColumn(4).setResizable(false);
             customerHistoryTable.getColumnModel().getColumn(5).setResizable(false);
-            customerHistoryTable.getColumnModel().getColumn(6).setResizable(false);
         }
 
         searchButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -104,41 +106,48 @@ public class CustomerRentalHistory extends javax.swing.JInternalFrame {
             }
         });
 
+        clearButton.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        clearButton.setText("Clear table");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(1107, 1107, 1107)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(29, 29, 29))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(334, 334, 334)
-                        .addComponent(customerRentalLable))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(customerHistoryIdLable)
-                        .addGap(18, 18, 18)
-                        .addComponent(customerRentalIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
-                        .addComponent(searchButton)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
+                .addComponent(customerHistoryIdLable)
+                .addGap(18, 18, 18)
+                .addComponent(customerRentalIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addComponent(searchButton)
+                .addGap(18, 18, 18)
+                .addComponent(clearButton)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(customerRentalLable)
+                .addGap(406, 406, 406))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(customerRentalLable)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(customerHistoryIdLable)
                     .addComponent(customerRentalIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchButton))
+                    .addComponent(searchButton)
+                    .addComponent(clearButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -160,7 +169,7 @@ public class CustomerRentalHistory extends javax.swing.JInternalFrame {
         {
                                     DefaultTableModel model = (DefaultTableModel)customerHistoryTable.getModel();
                                     model.setRowCount(0);
-                                    Object[] rowData = new Object[7];
+                                    Object[] rowData = new Object[6];
                                     ArrayList<RentalRecord> rentalRecords = customer.getRentalRecords();
                                     if(customerId.equals(customer.getCustomerId()))
                                     {
@@ -170,14 +179,14 @@ public class CustomerRentalHistory extends javax.swing.JInternalFrame {
                                             {
                                                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                                                 String rentDate = dateFormat.format(r.getRentDate());
-                                                String returnDate = dateFormat.format(r.getReturnDate());
+                                                String returnDate = dateFormat.format(r.getReturnDueDate());
                                                 rowData[0]=p.getProductSerialNumber();
                                                 rowData[1]=p.getYearOfManufacturer();
                                                 rowData[2]=p.getColour();
                                                 rowData[3]=p.getRentPerDay();
                                                 rowData[4]=rentDate;
                                                 rowData[5]=returnDate; 
-                                                rowData[6]=r.getReturnDate();
+                                                
                                                 model.addRow(rowData);  
                                             }
                                         }
@@ -187,8 +196,16 @@ public class CustomerRentalHistory extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_searchButtonActionPerformed
 
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)customerHistoryTable.getModel();
+        model.setRowCount(0);
+   
+    }//GEN-LAST:event_clearButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton clearButton;
     private javax.swing.JLabel customerHistoryIdLable;
     private javax.swing.JTable customerHistoryTable;
     private javax.swing.JTextField customerRentalIdTextField;

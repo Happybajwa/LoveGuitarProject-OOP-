@@ -146,7 +146,7 @@ DataStore dataStore = new DataStore();
         idLable17 = new javax.swing.JLabel();
         idLable18 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(813, 734));
+        setPreferredSize(new java.awt.Dimension(1250, 950));
 
         addProductButton.setText("add");
         addProductButton.addActionListener(new java.awt.event.ActionListener() {

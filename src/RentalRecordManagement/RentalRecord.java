@@ -16,7 +16,8 @@ import java.util.Date;
 public class RentalRecord {
             private ArrayList<Product> productList = new ArrayList<>();
 	    private Date rentDate;
-	    private Date returnDate;
+	    private Date returnDueDate;
+            private Date returnDate;
 	 
 	    public RentalRecord(ArrayList<Product> productList,Date rentDate,Date returnDate)  {
                 for(Product p:productList)
@@ -25,9 +26,18 @@ public class RentalRecord {
                 }        
 	        
                 this.rentDate=rentDate;
-	        this.returnDate=returnDate;
+	        this.returnDueDate=returnDate;
+                this.returnDate=returnDate;
 	        
 	    }
+
+            public Date getReturnDate() {
+                return returnDate;
+            }
+
+            public void setReturnDate(Date returnDate) {
+                this.returnDate = returnDate;
+            }
 
 	    public ArrayList<Product> getProductList() {
 	        return productList;
@@ -41,12 +51,12 @@ public class RentalRecord {
 	        this.rentDate = rentDate;
 	    }
 
-	    public Date getReturnDate() {
-	        return returnDate;
+	    public Date getReturnDueDate() {
+	        return returnDueDate;
 	    }
 
-	    public void setReturnDate(Date returnDate) {
-	        this.returnDate = returnDate;
+	    public void setReturnDueDate(Date returnDueDate) {
+	        this.returnDueDate = returnDueDate;
 	    }
 
 }

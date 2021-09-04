@@ -32,8 +32,8 @@ public class Product {
 			this.status = status;
 		}
 
-    public void setProductSerialNumber(String productSerialNumber) {
-        this.productSerialNumber = productSerialNumber;
+                public void setProductSerialNumber(String productSerialNumber) {
+                this.productSerialNumber = productSerialNumber;
     }
                 
 		public int getYearOfManufacturer() {
