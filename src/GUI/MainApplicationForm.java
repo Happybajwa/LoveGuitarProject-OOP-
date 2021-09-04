@@ -28,6 +28,7 @@ public class MainApplicationForm extends javax.swing.JFrame {
     private void initComponents() {
 
         mainDesktopPane = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         productMenu = new javax.swing.JMenu();
         AddProductMenu = new javax.swing.JMenuItem();
@@ -42,19 +43,31 @@ public class MainApplicationForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(813, 705));
+        setPreferredSize(new java.awt.Dimension(1512, 938));
 
-        mainDesktopPane.setPreferredSize(new java.awt.Dimension(863, 801));
+        mainDesktopPane.setPreferredSize(new java.awt.Dimension(1512, 938));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Calibri", 1, 48)); // NOI18N
+        jLabel1.setText("Welcome to Love GUITAR Management System");
+
+        mainDesktopPane.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout mainDesktopPaneLayout = new javax.swing.GroupLayout(mainDesktopPane);
         mainDesktopPane.setLayout(mainDesktopPaneLayout);
         mainDesktopPaneLayout.setHorizontalGroup(
             mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 863, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainDesktopPaneLayout.createSequentialGroup()
+                .addContainerGap(270, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1038, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(204, 204, 204))
         );
         mainDesktopPaneLayout.setVerticalGroup(
             mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 801, Short.MAX_VALUE)
+            .addGroup(mainDesktopPaneLayout.createSequentialGroup()
+                .addGap(357, 357, 357)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(435, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
@@ -131,9 +144,7 @@ public class MainApplicationForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(mainDesktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(mainDesktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -176,6 +187,7 @@ public class MainApplicationForm extends javax.swing.JFrame {
                 mainDesktopPane.removeAll();
                 SearchProductByDateIF form = new SearchProductByDateIF();
                 mainDesktopPane.add(form).setVisible(true);
+               
     }//GEN-LAST:event_searchProductByDateMenuItemActionPerformed
 
     /**
@@ -218,6 +230,7 @@ public class MainApplicationForm extends javax.swing.JFrame {
     private javax.swing.JMenu AddEmployeeMenuItem;
     private javax.swing.JMenuItem AddProductMenu;
     private javax.swing.JMenuItem CustomerMenuItem;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;

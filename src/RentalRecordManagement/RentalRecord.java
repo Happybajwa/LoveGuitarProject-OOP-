@@ -14,13 +14,17 @@ import java.util.Date;
  * @author happy
  */
 public class RentalRecord {
-            private ArrayList<Product> productList;
+            private ArrayList<Product> productList = new ArrayList<>();
 	    private Date rentDate;
 	    private Date returnDate;
 	 
 	    public RentalRecord(ArrayList<Product> productList,Date rentDate,Date returnDate)  {
-	        this.productList = productList;
-	        this.rentDate=rentDate;
+                for(Product p:productList)
+                {
+                    this.productList.add(p);
+                }        
+	        
+                this.rentDate=rentDate;
 	        this.returnDate=returnDate;
 	        
 	    }

@@ -11,6 +11,7 @@ import RentalRecordManagement.RentalRecord;
 import Stockmanagement.Product;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.ListIterator;
 
 /**
  *
@@ -21,6 +22,7 @@ public class DataStore {
     private static ArrayList<Product> products= new ArrayList<>();
     private static ArrayList<Customer> customers= new ArrayList<>();
     private static ArrayList<Employee> employees= new ArrayList<>();
+    private static ArrayList<Product> productTempList = new ArrayList();
     
     //ArrayList getters
     
@@ -124,5 +126,12 @@ public class DataStore {
         }
       }return rentalList;
    }  
+   public static void addProductTempList(Product p)
+   {
+       productTempList.add(p);
+   }
+   public static ArrayList<Product> getTempProductList()
+   {
+       return productTempList;
+   }
 }
-

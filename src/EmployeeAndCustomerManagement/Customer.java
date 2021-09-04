@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author happy
  */
 public class Customer {
-    private ArrayList<RentalRecord> rentalRecords = new ArrayList<>();
+     private ArrayList<RentalRecord> rentalRecords = new ArrayList<>();
     private String name;
     private String dateOfBirth;
     private String address;
