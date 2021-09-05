@@ -45,6 +45,7 @@ public class CustomerRentalHistoryIF extends javax.swing.JInternalFrame {
         customerHistoryTable = new javax.swing.JTable();
         searchButton = new javax.swing.JButton();
         clearButton = new javax.swing.JButton();
+        customerIdErrorLable = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1250, 950));
 
@@ -54,6 +55,17 @@ public class CustomerRentalHistoryIF extends javax.swing.JInternalFrame {
         customerHistoryIdLable.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         customerHistoryIdLable.setText("Enter Customer ID:");
 
+        customerRentalIdTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerRentalIdTextFieldActionPerformed(evt);
+            }
+        });
+        customerRentalIdTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                customerRentalIdTextFieldKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -62,7 +74,7 @@ public class CustomerRentalHistoryIF extends javax.swing.JInternalFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 5, Short.MAX_VALUE)
+            .addGap(0, 259, Short.MAX_VALUE)
         );
 
         customerHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -114,6 +126,9 @@ public class CustomerRentalHistoryIF extends javax.swing.JInternalFrame {
             }
         });
 
+        customerIdErrorLable.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        customerIdErrorLable.setForeground(new java.awt.Color(255, 51, 51));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -122,27 +137,35 @@ public class CustomerRentalHistoryIF extends javax.swing.JInternalFrame {
                 .addGap(1107, 1107, 1107)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(29, 29, 29))
+            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(customerHistoryIdLable)
                 .addGap(18, 18, 18)
-                .addComponent(customerRentalIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(searchButton)
-                .addGap(18, 18, 18)
-                .addComponent(clearButton)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addComponent(jScrollPane1)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(customerRentalLable)
-                .addGap(406, 406, 406))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(customerIdErrorLable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(customerRentalIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(searchButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(clearButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(customerRentalLable)
+                        .addGap(406, 406, 406))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(customerRentalLable)
-                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(customerRentalLable)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(customerIdErrorLable, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(customerHistoryIdLable)
                     .addComponent(customerRentalIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -203,11 +226,33 @@ public class CustomerRentalHistoryIF extends javax.swing.JInternalFrame {
    
     }//GEN-LAST:event_clearButtonActionPerformed
 
+    private void customerRentalIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerRentalIdTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_customerRentalIdTextFieldActionPerformed
+
+    private void customerRentalIdTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerRentalIdTextFieldKeyPressed
+        // TODO add your handling code here:
+         customerIdErrorLable.setText("");
+        char c = evt.getKeyChar();
+        String value = "";
+        value = c+"";
+        if(Character.isAlphabetic(c) || Character.isDigit(c) || Character.isISOControl(c) || Character.isLetter(c) || Character.isWhitespace(c) || value.equals("@") || value.equals("."))
+        {
+            customerRentalIdTextField.setEditable(true);
+        }else
+        {
+            customerIdErrorLable.setText("Only Dot, @, Alphabets and Digits are Allowed");
+            customerRentalIdTextField.setEditable(false);
+        }
+    
+    }//GEN-LAST:event_customerRentalIdTextFieldKeyPressed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clearButton;
     private javax.swing.JLabel customerHistoryIdLable;
     private javax.swing.JTable customerHistoryTable;
+    private javax.swing.JLabel customerIdErrorLable;
     private javax.swing.JTextField customerRentalIdTextField;
     private javax.swing.JLabel customerRentalLable;
     private javax.swing.JPanel jPanel1;

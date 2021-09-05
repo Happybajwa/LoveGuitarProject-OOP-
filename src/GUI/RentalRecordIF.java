@@ -734,7 +734,7 @@ ArrayList<Product> returnProducts = new ArrayList<>();
         // TODO add your handling code here:
         customerIdErrorLable.setText("");
         char c = evt.getKeyChar();
-        String value = "";
+        String value = " ";
         value = c+"";
         if(Character.isAlphabetic(c) || Character.isDigit(c) || Character.isISOControl(c) || Character.isLetter(c) || Character.isWhitespace(c) || value.equals("@") || value.equals("."))
         {
