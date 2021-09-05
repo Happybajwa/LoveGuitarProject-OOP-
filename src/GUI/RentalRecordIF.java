@@ -73,7 +73,6 @@ ArrayList<Product> returnProducts = new ArrayList<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         productListTable = new javax.swing.JTable();
         clearButton = new javax.swing.JButton();
-        showAllProductsButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
@@ -248,13 +247,6 @@ ArrayList<Product> returnProducts = new ArrayList<>();
             }
         });
 
-        showAllProductsButton.setText("Show All Products");
-        showAllProductsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showAllProductsButtonActionPerformed(evt);
-            }
-        });
-
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setText("Available Products in Store");
 
@@ -321,8 +313,6 @@ ArrayList<Product> returnProducts = new ArrayList<>();
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RentalPanelLayout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(showAllProductsButton)
-                                .addGap(18, 18, 18)
                                 .addComponent(clearButton))
                             .addGroup(RentalPanelLayout.createSequentialGroup()
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -381,7 +371,6 @@ ArrayList<Product> returnProducts = new ArrayList<>();
                                 .addGap(25, 25, 25)))
                         .addGap(80, 80, 80)
                         .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(showAllProductsButton)
                             .addComponent(clearButton)
                             .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -410,31 +399,6 @@ ArrayList<Product> returnProducts = new ArrayList<>();
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void showAllProductsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showAllProductsButtonActionPerformed
-        // TODO add your handling code here:
-        DefaultTableModel model = (DefaultTableModel)productListTable.getModel();
-        Object[] rows = new Object[4];
-        model.setRowCount(0);
-        ArrayList<Product>productList=DataStore.getProducts();
-        {for(Product p : productList)
-            {
-                if(p.getStatus().equals("Available"))
-                { 
-                    rentalProducts.clear();
-                    rentalProducts.add(p);
-                    rows[0]= p.getProductSerialNumber();
-                    rows[1]= p.getRentPerDay();
-                    rows[2]=p.getYearOfManufacturer();
-                    rows[3]=p.getStatus();
-                    model.addRow(rows);
-                    
-
-                }
-
-            }
-        }
-    }//GEN-LAST:event_showAllProductsButtonActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         // TODO add your handling code here:
@@ -764,7 +728,6 @@ ArrayList<Product> returnProducts = new ArrayList<>();
     private javax.swing.JRadioButton rentradioButton;
     private org.jdesktop.swingx.JXDatePicker returnItemDatePicker;
     private javax.swing.JRadioButton returnRadioButton;
-    private javax.swing.JButton showAllProductsButton;
     private javax.swing.JTextField totalRentTextField;
     // End of variables declaration//GEN-END:variables
 }
