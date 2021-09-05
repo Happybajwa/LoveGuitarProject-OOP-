@@ -28,6 +28,9 @@ public class MainApplicationForm extends javax.swing.JFrame {
     private void initComponents() {
 
         mainDesktopPane = new javax.swing.JDesktopPane();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         productMenu = new javax.swing.JMenu();
         AddProductMenu = new javax.swing.JMenuItem();
@@ -39,22 +42,70 @@ public class MainApplicationForm extends javax.swing.JFrame {
         rentalGUI = new javax.swing.JMenu();
         rentMenuItem = new javax.swing.JMenuItem();
         searchProductByDateMenuItem = new javax.swing.JMenuItem();
+        customerRentalMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setPreferredSize(new java.awt.Dimension(813, 705));
+        setMaximumSize(new java.awt.Dimension(1250, 950));
+        setPreferredSize(new java.awt.Dimension(1250, 950));
+        setResizable(false);
 
-        mainDesktopPane.setPreferredSize(new java.awt.Dimension(863, 801));
+        mainDesktopPane.setPreferredSize(new java.awt.Dimension(1203, 851));
+
+        jLayeredPane1.setBackground(new java.awt.Color(255, 255, 0));
+        jLayeredPane1.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel1.setFont(new java.awt.Font("Calibri", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel1.setText("Welcome to Love GUITAR Management System");
+
+        jLayeredPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap(202, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(90, 90, 90))
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/copy_497452162.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+
+        mainDesktopPane.setLayer(jLayeredPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        mainDesktopPane.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout mainDesktopPaneLayout = new javax.swing.GroupLayout(mainDesktopPane);
         mainDesktopPane.setLayout(mainDesktopPaneLayout);
         mainDesktopPaneLayout.setHorizontalGroup(
             mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 863, Short.MAX_VALUE)
+            .addGroup(mainDesktopPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLayeredPane1)
+                .addGap(19, 19, 19))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainDesktopPaneLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(378, 378, 378))
         );
         mainDesktopPaneLayout.setVerticalGroup(
             mainDesktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 801, Short.MAX_VALUE)
+            .addGroup(mainDesktopPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLayeredPane1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(0, 0, 0));
@@ -119,6 +170,14 @@ public class MainApplicationForm extends javax.swing.JFrame {
         });
         rentalGUI.add(searchProductByDateMenuItem);
 
+        customerRentalMenuItem.setText("Customer Rental History");
+        customerRentalMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerRentalMenuItemActionPerformed(evt);
+            }
+        });
+        rentalGUI.add(customerRentalMenuItem);
+
         jMenuBar1.add(rentalGUI);
 
         setJMenuBar(jMenuBar1);
@@ -127,13 +186,11 @@ public class MainApplicationForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainDesktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainDesktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1270, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(mainDesktopPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(mainDesktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 803, Short.MAX_VALUE)
         );
 
         pack();
@@ -176,7 +233,15 @@ public class MainApplicationForm extends javax.swing.JFrame {
                 mainDesktopPane.removeAll();
                 SearchProductByDateIF form = new SearchProductByDateIF();
                 mainDesktopPane.add(form).setVisible(true);
+               
     }//GEN-LAST:event_searchProductByDateMenuItemActionPerformed
+
+    private void customerRentalMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerRentalMenuItemActionPerformed
+        // TODO add your handling code here:
+                mainDesktopPane.removeAll();
+                CustomerRentalHistoryIF form = new CustomerRentalHistoryIF();
+                mainDesktopPane.add(form).setVisible(true);
+    }//GEN-LAST:event_customerRentalMenuItemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,6 +283,10 @@ public class MainApplicationForm extends javax.swing.JFrame {
     private javax.swing.JMenu AddEmployeeMenuItem;
     private javax.swing.JMenuItem AddProductMenu;
     private javax.swing.JMenuItem CustomerMenuItem;
+    private javax.swing.JMenuItem customerRentalMenuItem;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPopupMenu.Separator jSeparator1;

@@ -31,6 +31,11 @@ public class Product {
 			this.height = height;
 			this.status = status;
 		}
+
+                public void setProductSerialNumber(String productSerialNumber) {
+                this.productSerialNumber = productSerialNumber;
+    }
+                
 		public int getYearOfManufacturer() {
 			return yearOfManufacturer;
 		}
