@@ -204,7 +204,7 @@ public class CustomerIF extends javax.swing.JInternalFrame {
         }
         else
         {
-        DataStore.setcustomers(c);
+        DataStore.setCustomers(c);
         JOptionPane.showMessageDialog(this, "Added");
         nameTextField.setText("");
         idTextField.setText("");

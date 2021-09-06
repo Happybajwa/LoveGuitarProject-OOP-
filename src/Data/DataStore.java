@@ -22,32 +22,27 @@ public class DataStore {
     private static ArrayList<Customer> customers= new ArrayList<>();
     private static ArrayList<Employee> employees= new ArrayList<>();
     private static ArrayList<Product> productTempList = new ArrayList();
-    
+   
+
+    public static ArrayList<Product> getProductTempList() {
+        return productTempList;
+    }
+
+    public static void setProductTempList(ArrayList<Product> productTempList) {
+        DataStore.productTempList = productTempList;
+    }
+
     //ArrayList getters
     
-    public static ArrayList<Product> getProducts()
-        {
-            return products;
-        }
-    public ArrayList<Customer> getCustomers()
-        {
-            return customers;
-        }
-    public ArrayList<Employee> getEmployees()
-        {
-            return employees;
-        }
+    public static ArrayList<Product> getProducts(){    return products;}
+    public static ArrayList<Customer> getCustomers(){return customers;}
+    public ArrayList<Employee> getEmployees(){return employees;}
+    
     //ArrayList setters
     
-    public void setProduct(Product P)
-        {
-            products.add(P);
-        }
-    public static void setcustomers(Customer C)
-        {
-            customers.add(C);
-        }
-        public static boolean checkCustomerExists(Customer C)
+    public void setProduct(Product P){products.add(P);}
+    public static void setCustomers(Customer C){customers.add(C);}
+    public static boolean checkCustomerExists(Customer C)
         {
             boolean customerfound = false;
             for(Customer c: customers)
