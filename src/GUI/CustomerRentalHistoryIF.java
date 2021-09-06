@@ -74,7 +74,7 @@ public class CustomerRentalHistoryIF extends javax.swing.JInternalFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 231, Short.MAX_VALUE)
+            .addGap(0, 12, Short.MAX_VALUE)
         );
 
         customerHistoryTable.setModel(new javax.swing.table.DefaultTableModel(

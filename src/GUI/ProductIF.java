@@ -35,7 +35,6 @@ DataStore dataStore = new DataStore();
         rentTextField = new javax.swing.JTextField();
         idLable = new javax.swing.JLabel();
         rentLable = new javax.swing.JLabel();
-        statusTextField = new javax.swing.JTextField();
         rentLable1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         colourTextField = new javax.swing.JTextField();
@@ -145,6 +144,7 @@ DataStore dataStore = new DataStore();
         idLable16 = new javax.swing.JLabel();
         idLable17 = new javax.swing.JLabel();
         idLable18 = new javax.swing.JLabel();
+        productStatusComboBox = new javax.swing.JComboBox<>();
 
         setPreferredSize(new java.awt.Dimension(1250, 950));
 
@@ -164,12 +164,6 @@ DataStore dataStore = new DataStore();
         idLable.setText("Serial Number");
 
         rentLable.setText("RentPerDay");
-
-        statusTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                statusTextFieldActionPerformed(evt);
-            }
-        });
 
         rentLable1.setText("Status");
 
@@ -1096,6 +1090,8 @@ DataStore dataStore = new DataStore();
 
         idLable18.setText("Width");
 
+        productStatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1130,10 +1126,10 @@ DataStore dataStore = new DataStore();
                         .addComponent(colourTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(heightTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(statusTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                        .addComponent(widthTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(productStatusComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(widthTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
                         .addComponent(leghtTextField, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addGap(0, 574, Short.MAX_VALUE))
+                .addGap(0, 1011, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1185,11 +1181,11 @@ DataStore dataStore = new DataStore();
                     .addComponent(idLable16))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(statusTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rentLable1))
+                    .addComponent(rentLable1)
+                    .addComponent(productStatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addComponent(addProductButton)
-                .addContainerGap(383, Short.MAX_VALUE))
+                .addContainerGap(599, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1219,7 +1215,7 @@ DataStore dataStore = new DataStore();
         double width = Double.parseDouble(widthTextField.getText());
         double length = Double.parseDouble(leghtTextField.getText());
         double rent=Double.parseDouble(rentTextField.getText());
-        String status = statusTextField.getText();
+        String status = productStatusComboBox.getSelectedItem().toString();
         if(status.equals("Available") || status.equals("Rented")|| status.equals("Under Maintenance"))
         {
 
@@ -1236,10 +1232,6 @@ DataStore dataStore = new DataStore();
     private void rentTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rentTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rentTextFieldActionPerformed
-
-    private void statusTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_statusTextFieldActionPerformed
 
     private void colourTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_colourTextFieldActionPerformed
         // TODO add your handling code here:
@@ -1538,6 +1530,7 @@ DataStore dataStore = new DataStore();
     private javax.swing.JTextField productNameTextField7;
     private javax.swing.JTextField productNameTextField8;
     private javax.swing.JTextField productNameTextField9;
+    private javax.swing.JComboBox<String> productStatusComboBox;
     private javax.swing.JLabel rentLable;
     private javax.swing.JLabel rentLable1;
     private javax.swing.JLabel rentLable10;
@@ -1563,7 +1556,6 @@ DataStore dataStore = new DataStore();
     private javax.swing.JTextField rentPerDayTextField7;
     private javax.swing.JTextField rentTextField;
     private javax.swing.JTextField serialTextField;
-    private javax.swing.JTextField statusTextField;
     private javax.swing.JTextField statusTextField1;
     private javax.swing.JTextField statusTextField2;
     private javax.swing.JTextField statusTextField3;

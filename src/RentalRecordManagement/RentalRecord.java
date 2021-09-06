@@ -18,6 +18,7 @@ public class RentalRecord {
 	    private Date rentDate;
 	    private Date returnDueDate;
             private Date returnDate;
+            
 	 
 	    public RentalRecord(ArrayList<Product> productList,Date rentDate,Date returnDate)  {
                 for(Product p:productList)
@@ -58,6 +59,8 @@ public class RentalRecord {
 	    public void setReturnDueDate(Date returnDueDate) {
 	        this.returnDueDate = returnDueDate;
 	    }
+            
+            
 
 }
 
