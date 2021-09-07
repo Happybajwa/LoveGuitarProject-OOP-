@@ -41,7 +41,7 @@ public class DataStoreTest {
         ArrayList<Product> p = new ArrayList<>();
         ArrayList<Product> dataStoreList = DataStore.getProducts();
         
-        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "Avaialble");
+        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "Avaialble","Electric");
         DataStore d = new DataStore();
         dataStoreList.clear();
         d.setProduct(p1);
@@ -53,7 +53,7 @@ public class DataStoreTest {
         ArrayList<Product> p = new ArrayList<>();
         ArrayList<Product> dataStoreList = DataStore.getProducts();
         
-        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "Avaialble");
+        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "Avaialble","Electric");
         DataStore d = new DataStore();
         
         dataStoreList.clear();
@@ -86,7 +86,7 @@ public class DataStoreTest {
         
          ArrayList<Product> datastorelist = DataStore.getProducts();
         ArrayList<Product> plist = new ArrayList<>();
-        Product P1 = new Product("101", 2010, 10, "White", 10, 20, 20, "Rented");
+        Product P1 = new Product("101", 2010, 10, "White", 10, 20, 20, "Rented","Electric");
               
         plist.add(P1);    
         datastorelist.clear();
@@ -150,7 +150,7 @@ public class DataStoreTest {
      */
     @Test
     public void testSearchProductbyProductId() {
-        Product p1 = new Product("103", 10, 10, "White", 10, 10, 10, "Available");
+        Product p1 = new Product("103", 10, 10, "White", 10, 10, 10, "Available","Electric");
         ArrayList<Product> plist = DataStore.getProducts();
         plist.clear();
         plist.add(p1);
@@ -159,7 +159,7 @@ public class DataStoreTest {
     
      @Test
     public void testSearchProductbyInvalidProductId() {
-        Product p1 = new Product("103", 10, 10, "White", 10, 10, 10, "Available");
+        Product p1 = new Product("103", 10, 10, "White", 10, 10, 10, "Available","Electric");
         ArrayList<Product> plist = DataStore.getProducts();
         plist.clear();
         plist.add(p1);
@@ -171,7 +171,7 @@ public class DataStoreTest {
      */
     @Test
     public void testSetProductStatus() {
-        Product p1 = new Product("103", 10, 10, "White", 10, 10, 10, "Available");
+        Product p1 = new Product("103", 10, 10, "White", 10, 10, 10, "Available","Electric");
         DataStore d = new DataStore();
         ArrayList<Product> plist = DataStore.getProducts();
         plist.clear();

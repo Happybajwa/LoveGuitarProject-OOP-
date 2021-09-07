@@ -64,7 +64,7 @@ public class RentalRecordTest {
         ArrayList<Product> plist = new ArrayList<>();
         Date d1 = new Date();
         Date d2 = new Date();
-        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "Avaialble");
+        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "Avaialble","Electric");
         plist.clear();
         plist.add(p1);
         RentalRecord r = new RentalRecord(plist, d1, d2);
@@ -80,7 +80,7 @@ public class RentalRecordTest {
           ArrayList<Product> plist = new ArrayList<>();
         Date d1 = new Date();
         Date d2 = new Date();
-        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "Avaialble");
+        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "Avaialble","Electric");
         plist.clear();
         plist.add(p1);
         RentalRecord r = new RentalRecord(plist, d1, d2);
@@ -96,7 +96,7 @@ public class RentalRecordTest {
         ArrayList<Product> plist = new ArrayList<>();
         Date d1 = new Date();
         Date d2 = new Date();
-        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "Avaialble");
+        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "Avaialble","Electric");
         plist.clear();
         plist.add(p1);
         RentalRecord r = new RentalRecord(plist, d1, d2);
@@ -115,7 +115,7 @@ public class RentalRecordTest {
         ArrayList<Product> plist = new ArrayList<>();
         Date d1 = new Date();
         Date d2 = new Date();
-        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "Avaialble");
+        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "Avaialble","Electric");
         plist.clear();
         plist.add(p1);
         RentalRecord r = new RentalRecord(plist, d1, d2);
@@ -131,7 +131,7 @@ public class RentalRecordTest {
         ArrayList<Product> plist = new ArrayList<>();
         Date d1 = new Date();
         Date d2 = new Date();
-        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "Avaialble");
+        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "Avaialble","Electric");
         plist.clear();
         plist.add(p1);
         RentalRecord r = new RentalRecord(plist, d1, d2);
