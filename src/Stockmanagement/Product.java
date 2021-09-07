@@ -18,8 +18,9 @@ public class Product {
 	    private double widgt;
 	    private double height;
 	    private String status;
+            private String type;
 		public Product(String productSerialNumber, int yearOfManufacturer, double rentPerDay, String colour,
-				double lenght, double widgt, double height, String status) 
+				double lenght, double widgt, double height, String status, String type) 
 		{
 			
 			this.productSerialNumber = productSerialNumber;
@@ -30,7 +31,16 @@ public class Product {
 			this.widgt = widgt;
 			this.height = height;
 			this.status = status;
+                        this.type = type;
 		}
+
+                public String getType() {
+                    return type;
+                }
+
+                public void setType(String type) {
+                    this.type = type;
+                }
 
                 public void setProductSerialNumber(String productSerialNumber) {
                 this.productSerialNumber = productSerialNumber;

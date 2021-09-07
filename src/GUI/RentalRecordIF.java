@@ -229,7 +229,7 @@ ReceiptForm jForm = new ReceiptForm();
 
             },
             new String [] {
-                "Product Serial No.", "RentPerDay", "Year of manuf.", "Status"
+                "Product Serial No.", "RentPerDay", "Guitar Type", "Status"
             }
         ) {
             Class[] types = new Class [] {
@@ -339,13 +339,9 @@ ReceiptForm jForm = new ReceiptForm();
                                     .addComponent(customerPhoneLable)
                                     .addGap(3, 3, 3)))
                             .addComponent(customerRentalHistoryLable))
-                        .addGap(83, 83, 83)
                         .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(RentalPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(clearButton))
-                            .addGroup(RentalPanelLayout.createSequentialGroup()
+                                .addGap(83, 83, 83)
                                 .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(RentalPanelLayout.createSequentialGroup()
@@ -354,7 +350,12 @@ ReceiptForm jForm = new ReceiptForm();
                                         .addComponent(totalRentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(rentReturnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(RentalPanelLayout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(clearButton)))))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         RentalPanelLayout.setVerticalGroup(
@@ -383,17 +384,6 @@ ReceiptForm jForm = new ReceiptForm();
                             .addComponent(productIdLable, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(RentalPanelLayout.createSequentialGroup()
-                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(RentalPanelLayout.createSequentialGroup()
-                                        .addGap(108, 108, 108)
-                                        .addComponent(clearButton)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RentalPanelLayout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(RentalPanelLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -409,8 +399,15 @@ ReceiptForm jForm = new ReceiptForm();
                                     .addComponent(customerdateOfbirthLable)
                                     .addComponent(dateOfBirthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                                .addComponent(customerRentalHistoryLable)
-                                .addGap(429, 429, 429)))))
+                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(customerRentalHistoryLable)
+                                    .addComponent(jLabel5))
+                                .addGap(2, 2, 2))
+                            .addGroup(RentalPanelLayout.createSequentialGroup()
+                                .addGap(108, 108, 108)
+                                .addComponent(clearButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(returnRadioButton)
@@ -509,7 +506,7 @@ ReceiptForm jForm = new ReceiptForm();
             {                       
                                     rowData[0]=product.getProductSerialNumber();
                                     rowData[1]=product.getRentPerDay();
-                                    rowData[2]=product.getYearOfManufacturer();
+                                    rowData[2]=product.getType();
                                     rowData[3]=product.getStatus();
                                     model.addRow(rowData);
                                     rentalProducts.add(product);
@@ -537,7 +534,7 @@ ReceiptForm jForm = new ReceiptForm();
                             {
                                     rowData[0]=product.getProductSerialNumber();
                                     rowData[1]=product.getRentPerDay();
-                                    rowData[2]=product.getYearOfManufacturer();
+                                    rowData[2]=product.getType();
                                     rowData[3]=product.getStatus();
                                     model.addRow(rowData);
                                     rentalProducts.add(product);
@@ -684,7 +681,7 @@ ReceiptForm jForm = new ReceiptForm();
                 DefaultTableModel model = (DefaultTableModel)productListTable.getModel();
                 model.setRowCount(0);   
                 jForm.setVisible(true);
-                 SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");   
+                SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");   
                 String returnDate1 = df.format(returnDate);
                 jForm.getCustomerRental(customer.getName(),customer.getCustomerId(),rentalProducts.size(),total,returnDate1);
                 jForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -692,33 +689,26 @@ ReceiptForm jForm = new ReceiptForm();
             }
             else if(difference < 0)
             {
-                JOptionPane.showMessageDialog(this,"Return date cannot be in past.\n Please Select a Valid return date.");
+                JOptionPane.showMessageDialog(this,"Return Date cannot be in the past.\n Please Select a Valid Return Date.");
             }
         }
-        }
-        else
-        {
-        
-        if(returnProducts.isEmpty() == false)
-        {
-            
-            for(RentalRecord r: customer.getRentalRecords())
+        }else
             {
-               ArrayList<Product> plist = r.getProductList();
-                for(Product p : plist)
-                {
-                    if(p.getStatus().equals("Rented"))
+                if(returnProducts.isEmpty() == false)
+            {
+            
+                for(RentalRecord r: customer.getRentalRecords())
                     {
-                        p.setStatus("Available");
-                        JOptionPane.showMessageDialog(this, "Product has been returned. Thank You\n"+p.getStatus());
-                        returnItemDatePicker.setDate(null);
-                        
-                        
-                    }
-
-                }
-            }      
-        }
+                        ArrayList<Product> plist = r.getProductList();
+                        for(Product p : plist)
+                            {  
+                            if(p.getStatus().equals("Rented"))
+                            p.setStatus("Available");
+                            JOptionPane.showMessageDialog(this, "Product has been returned. Thank You\n"+p.getStatus());
+                            returnItemDatePicker.setDate(null);
+                            }
+                    }      
+            }
         }
   
     }//GEN-LAST:event_rentReturnButtonActionPerformed

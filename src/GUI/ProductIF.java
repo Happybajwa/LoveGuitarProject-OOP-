@@ -145,6 +145,8 @@ DataStore dataStore = new DataStore();
         idLable17 = new javax.swing.JLabel();
         idLable18 = new javax.swing.JLabel();
         productStatusComboBox = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        guitarComboBox = new javax.swing.JComboBox<>();
 
         setPreferredSize(new java.awt.Dimension(1250, 950));
 
@@ -1092,6 +1094,15 @@ DataStore dataStore = new DataStore();
 
         productStatusComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available" }));
 
+        jLabel9.setText("Guitar Type");
+
+        guitarComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ACOUSTIC ", "ELECTRIC" }));
+        guitarComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guitarComboBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1100,36 +1111,33 @@ DataStore dataStore = new DataStore();
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(11, 11, 11)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(idLable))
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(0, 58, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(idLable, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(idLable2, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(idLable3, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(rentLable, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(idLable18, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(idLable17, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(rentLable1)
-                                .addComponent(idLable16)))))
+                            .addComponent(idLable18, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(idLable16, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(rentLable1, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(yearTextField)
-                        .addComponent(serialTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(addProductButton)
-                        .addComponent(rentTextField)
-                        .addComponent(colourTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(heightTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(productStatusComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(widthTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
-                        .addComponent(leghtTextField, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addGap(0, 1011, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(yearTextField)
+                    .addComponent(serialTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                    .addComponent(addProductButton)
+                    .addComponent(rentTextField)
+                    .addComponent(colourTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                    .addComponent(leghtTextField)
+                    .addComponent(widthTextField)
+                    .addComponent(heightTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                    .addComponent(guitarComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(productStatusComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 973, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1172,7 +1180,7 @@ DataStore dataStore = new DataStore();
                     .addComponent(idLable17)
                     .addComponent(heightTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(widthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(idLable18))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1181,11 +1189,15 @@ DataStore dataStore = new DataStore();
                     .addComponent(idLable16))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(guitarComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rentLable1)
                     .addComponent(productStatusComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
+                .addGap(24, 24, 24)
                 .addComponent(addProductButton)
-                .addContainerGap(599, Short.MAX_VALUE))
+                .addContainerGap(542, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -1216,16 +1228,12 @@ DataStore dataStore = new DataStore();
         double length = Double.parseDouble(leghtTextField.getText());
         double rent=Double.parseDouble(rentTextField.getText());
         String status = productStatusComboBox.getSelectedItem().toString();
-        if(status.equals("Available") || status.equals("Rented")|| status.equals("Under Maintenance"))
-        {
-
-            Product p=new Product(productserial,year,rent,colour,length,width,height,status);
-            dataStore.setProduct(p);
-            JOptionPane.showMessageDialog(this,"product added");
-        }else
-        {
-            JOptionPane.showMessageDialog(this,"Sorry! Something is not right\nNote:Product Status can only be\n1.Available\n2.Rented\n3.Under Maintence");
-        }
+        String type = guitarComboBox.getSelectedItem().toString();
+       
+        Product p=new Product(productserial,year,rent,colour,length,width,height,status,type);
+        dataStore.setProduct(p);
+        JOptionPane.showMessageDialog(this,"product added successfully");
+      
 
     }//GEN-LAST:event_addProductButtonActionPerformed
 
@@ -1449,6 +1457,10 @@ DataStore dataStore = new DataStore();
         // TODO add your handling code here:
     }//GEN-LAST:event_widthTextFieldActionPerformed
 
+    private void guitarComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guitarComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_guitarComboBoxActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addProductButton;
@@ -1460,6 +1472,7 @@ DataStore dataStore = new DataStore();
     private javax.swing.JButton addProductButton6;
     private javax.swing.JButton addProductButton7;
     private javax.swing.JTextField colourTextField;
+    private javax.swing.JComboBox<String> guitarComboBox;
     private javax.swing.JTextField heightTextField;
     private javax.swing.JLabel idLable;
     private javax.swing.JLabel idLable1;
@@ -1505,6 +1518,7 @@ DataStore dataStore = new DataStore();
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField leghtTextField;
     private javax.swing.JLabel modelLable1;
     private javax.swing.JLabel modelLable2;
