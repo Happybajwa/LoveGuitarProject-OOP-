@@ -25,40 +25,22 @@ public class RentalRecord {
                 {
                     this.productList.add(p);
                 }        
-	        
                 this.rentDate=rentDate;
-	        this.returnDueDate=returnDate;
-                this.returnDate=returnDate;
-	        
+                this.returnDate=returnDate;    
 	    }
+            public Date getReturnDate() {return returnDate; }
 
-            public Date getReturnDate() {
-                return returnDate;
-            }
+            public void setReturnDate(Date returnDate) {this.returnDate = returnDate;}
 
-            public void setReturnDate(Date returnDate) {
-                this.returnDate = returnDate;
-            }
+	    public ArrayList<Product> getProductList() {return productList;}
 
-	    public ArrayList<Product> getProductList() {
-	        return productList;
-	    }
+	    public Date getRentDate() {return rentDate;}
 
-	    public Date getRentDate() {
-	        return rentDate;
-	    }
+	    public void setRentDate(Date rentDate) {this.rentDate = rentDate;}
 
-	    public void setRentDate(Date rentDate) {
-	        this.rentDate = rentDate;
-	    }
+	    public Date getReturnDueDate() {return returnDueDate;}
 
-	    public Date getReturnDueDate() {
-	        return returnDueDate;
-	    }
-
-	    public void setReturnDueDate(Date returnDueDate) {
-	        this.returnDueDate = returnDueDate;
-	    }
+	    public void setReturnDueDate(Date returnDueDate) {this.returnDueDate = returnDueDate;}
             
             
 

@@ -204,7 +204,7 @@ public class CustomerRentalHistoryIF extends javax.swing.JInternalFrame {
                                             {
                                                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                                                 String rentDate = dateFormat.format(r.getRentDate());
-                                                String returnDate = dateFormat.format(r.getReturnDueDate());
+                                                String returnDate = dateFormat.format(r.getReturnDate());
                                                 rowData[0]=p.getProductSerialNumber();
                                                 rowData[1]=p.getYearOfManufacturer();
                                                 rowData[2]=p.getColour();

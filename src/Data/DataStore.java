@@ -23,7 +23,7 @@ public class DataStore {
     private static ArrayList<Employee> employees= new ArrayList<>();
     private static ArrayList<Product> productTempList = new ArrayList();
    
-
+    
     public static ArrayList<Product> getProductTempList() {
         return productTempList;
     }
@@ -61,6 +61,7 @@ public class DataStore {
             employees.add(E);
         }
     //Search Customer Function
+    
     public static Customer SearchCustomerById(String id)
     {   
         Customer found=null;
@@ -75,6 +76,7 @@ public class DataStore {
        return found;
     }
     
+    //Search Product by Product ID and Product Status Function
     public static Product SearchProductbyProductId(String serialNumber, String status)
 
     {
@@ -100,6 +102,8 @@ public class DataStore {
         }
         
     }
+   
+   //Search Product by Date Function
    public static ArrayList<RentalRecord> searchProductByDate(Date fromDate, Date toDate)
    { 
        long fromDateLong =fromDate.getTime();

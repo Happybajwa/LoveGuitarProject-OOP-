@@ -9,7 +9,6 @@ import Data.DataStore;
 import EmployeeAndCustomerManagement.Customer;
 import RentalRecordManagement.RentalRecord;
 import Stockmanagement.Product;
-import java.awt.Container;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -477,7 +476,7 @@ ReceiptForm jForm = new ReceiptForm();
 
                     SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
                     String rentDate = df.format(r.getRentDate());
-                    String returnDate = df.format(r.getReturnDueDate());
+                    String returnDate = df.format(r.getReturnDate());
 
                     rowData[0]=p.getProductSerialNumber();
                     rowData[1]=p.getRentPerDay();
@@ -634,7 +633,9 @@ ReceiptForm jForm = new ReceiptForm();
                 DefaultTableModel model = (DefaultTableModel)productListTable.getModel();
                 model.setRowCount(0);
                 jForm.setVisible(true);
-                jForm.getCustomerRental(customer.getCustomerId(),rentalProducts.size(),totalRent,returnDate);
+                SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");   
+                String returnDate1 = df.format(returnDate);
+                jForm.getCustomerRental(customer.getName(),customer.getCustomerId(),rentalProducts.size(),totalRent,returnDate1);
                 jForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 rentalProducts.clear();
                 
@@ -678,12 +679,16 @@ ReceiptForm jForm = new ReceiptForm();
                 ProductIdTextField.setText("");
                 returnItemDatePicker.setDate(null);
                 productListTable.removeAll();
+                totalRentTextField.setText("");
+                
                 DefaultTableModel model = (DefaultTableModel)productListTable.getModel();
                 model.setRowCount(0);   
                 jForm.setVisible(true);
-                jForm.getCustomerRental(customer.getCustomerId(),rentalProducts.size(),total,returnDate);
+                 SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");   
+                String returnDate1 = df.format(returnDate);
+                jForm.getCustomerRental(customer.getName(),customer.getCustomerId(),rentalProducts.size(),total,returnDate1);
                 jForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                 rentalProducts.clear();
+                rentalProducts.clear();
             }
             else if(difference < 0)
             {
@@ -707,6 +712,8 @@ ReceiptForm jForm = new ReceiptForm();
                         p.setStatus("Available");
                         JOptionPane.showMessageDialog(this, "Product has been returned. Thank You\n"+p.getStatus());
                         returnItemDatePicker.setDate(null);
+                        
+                        
                     }
 
                 }

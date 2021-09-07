@@ -6,7 +6,6 @@
 package GUI;
 
 import Data.DataStore;
-import EmployeeAndCustomerManagement.Customer;
 import RentalRecordManagement.RentalRecord;
 import Stockmanagement.Product;
 import java.text.SimpleDateFormat;
@@ -185,20 +184,40 @@ Product product = null;
 
     private void showProductRecordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showProductRecordButtonActionPerformed
         // TODO add your handling code here:
-        
+        if(firstDatePicker.getDate()==null && secondDatePicker.getDate()==null)
+        {
+            JOptionPane.showMessageDialog(this, "Please Select Valid Dates to Search Product From");
+            firstDatePicker.setDate(null);
+            secondDatePicker.setDate(null);
+            
+                    
+            
+        }else if(firstDatePicker.getDate() == null &  secondDatePicker.getDate()!=null || firstDatePicker.getDate() != null &  secondDatePicker.getDate()==null)
+        {
+            JOptionPane.showMessageDialog(this, "Please Select Both Dates to Search Product From");
+            firstDatePicker.setDate(null);
+            secondDatePicker.setDate(null);
+        }else
+        {
         Date firstDate = firstDatePicker.getDate();
         Date secondDate = secondDatePicker.getDate();
         long firstDateLong = firstDate.getTime();
         long secondDateLong = secondDate.getTime();
+        
         if (firstDateLong > secondDateLong)
             {
              JOptionPane.showMessageDialog(this, "Please Check the Date\nNote: TO Date can not be before FROM Date");   
+             firstDatePicker.setDate(null);
+             secondDatePicker.setDate(null);
             }else
                 {
                      ArrayList<RentalRecord> rentalRecordList = DataStore.searchProductByDate(firstDate, secondDate);  
                      if(rentalRecordList.isEmpty())
                             {
                                 JOptionPane.showMessageDialog(this, "Sorry No Record Found");
+                                firstDatePicker.setDate(null);
+                                secondDatePicker.setDate(null);
+                                
                             }else
                                 {
                                     DefaultTableModel model = (DefaultTableModel)productListTable.getModel();
@@ -211,7 +230,7 @@ Product product = null;
                                             {
                                                 SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                                                 String rentDate = dateFormat.format(r.getRentDate());
-                                                String returnDate = dateFormat.format(r.getReturnDueDate());
+                                                String returnDate = dateFormat.format(r.getReturnDate());
                                                 rowData[0]=p.getProductSerialNumber();
                                                 rowData[1]=p.getYearOfManufacturer();
                                                 rowData[2]=p.getRentPerDay();
@@ -223,12 +242,15 @@ Product product = null;
                                         }                  
                                 }
                 }
+        }
     }//GEN-LAST:event_showProductRecordButtonActionPerformed
 
     private void clearTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearTableActionPerformed
         // TODO add your handling code here:
         DefaultTableModel model = (DefaultTableModel)productListTable.getModel();
         model.setRowCount(0);
+        firstDatePicker.setDate(null);
+        secondDatePicker.setDate(null);
     }//GEN-LAST:event_clearTableActionPerformed
 
 
