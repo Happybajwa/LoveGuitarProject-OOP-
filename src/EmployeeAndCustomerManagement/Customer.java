@@ -19,15 +19,18 @@ public class Customer {
     private String address;
     private String personId;
     private String phone;
+    private String DriverLicenseNo;
+    
  
 	public Customer( String name, String dateOfBirth, String address,
-			String personId, String phone) {
+			String personId, String phone, String DriverLicenseNo) {
 
 		this.name = name;
 		this.dateOfBirth = dateOfBirth;
 		this.address = address;
 		this.personId = personId;
                 this.phone=phone;
+                this.DriverLicenseNo=DriverLicenseNo;
 	
 	}
 
@@ -67,6 +70,14 @@ public class Customer {
 	public String getCustomerId() {
 		return personId;
 	}
+
+        public String getDriverLicenseNo() {
+        return DriverLicenseNo;
+        }
+
+        public void setDriverLicenseNo(String DriverLicenseNo) {
+        this.DriverLicenseNo = DriverLicenseNo;
+        }
 
  
 

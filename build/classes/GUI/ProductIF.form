@@ -25,14 +25,21 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="showallCustomersButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="58" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="0" pref="151" max="32767" attributes="0"/>
+                              <Component id="jLabel10" min="-2" pref="959" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="idLable" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="idLable2" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -44,22 +51,27 @@
                           <Component id="jLabel9" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="rentLable1" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="yearTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="serialTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="addProductButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="rentTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="colourTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="leghtTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="widthTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="heightTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="guitarComboBox" alignment="0" max="32767" attributes="0"/>
+                          <Component id="productStatusComboBox" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="yearTextField" alignment="0" max="32767" attributes="0"/>
-                  <Component id="serialTextField" alignment="0" pref="119" max="32767" attributes="0"/>
-                  <Component id="addProductButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="rentTextField" alignment="0" max="32767" attributes="0"/>
-                  <Component id="colourTextField" alignment="0" pref="119" max="32767" attributes="0"/>
-                  <Component id="leghtTextField" alignment="0" max="32767" attributes="0"/>
-                  <Component id="widthTextField" alignment="0" max="32767" attributes="0"/>
-                  <Component id="heightTextField" alignment="0" pref="119" max="32767" attributes="0"/>
-                  <Component id="guitarComboBox" alignment="0" max="32767" attributes="0"/>
-                  <Component id="productStatusComboBox" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="0" pref="973" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
@@ -70,9 +82,9 @@
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="398" max="32767" attributes="0"/>
+                  <EmptySpace pref="701" max="32767" attributes="0"/>
                   <Component id="jInternalFrame2" min="-2" pref="0" max="-2" attributes="0"/>
-                  <EmptySpace pref="399" max="32767" attributes="0"/>
+                  <EmptySpace pref="702" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
@@ -89,54 +101,63 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="serialTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="idLable" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="yearTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="idLable2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+              <Component id="showallCustomersButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="colourTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="idLable3" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="serialTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="idLable" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="yearTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="idLable2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="colourTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="idLable3" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="rentTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rentLable" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="idLable17" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="heightTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="widthTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="idLable18" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="leghtTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="idLable16" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="guitarComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="rentLable1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="productStatusComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="addProductButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="rentTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="rentLable" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="idLable17" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="heightTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="widthTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="idLable18" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="leghtTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="idLable16" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="guitarComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="rentLable1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="productStatusComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-              <Component id="addProductButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="542" max="32767" attributes="0"/>
+              <EmptySpace pref="355" max="32767" attributes="0"/>
+              <Component id="jLabel10" min="-2" pref="58" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
           </Group>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
@@ -147,9 +168,9 @@
           </Group>
           <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="352" max="32767" attributes="0"/>
+                  <EmptySpace pref="471" max="32767" attributes="0"/>
                   <Component id="jInternalFrame2" min="-2" pref="0" max="-2" attributes="0"/>
-                  <EmptySpace pref="352" max="32767" attributes="0"/>
+                  <EmptySpace pref="472" max="32767" attributes="0"/>
               </Group>
           </Group>
           <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
@@ -189,11 +210,6 @@
     <Component class="javax.swing.JLabel" name="rentLable1">
       <Properties>
         <Property name="text" type="java.lang.String" value="Status"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="name"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="colourTextField">
@@ -1398,7 +1414,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="1">
-            <StringItem index="0" value="Available"/>
+            <StringItem index="0" value="IN_STOCK"/>
           </StringArray>
         </Property>
       </Properties>
@@ -1426,6 +1442,108 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="showAllProducts">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="9" rowCount="0">
+                <Column editable="false" title="Serial Number" type="java.lang.String"/>
+                <Column editable="false" title="Year of Manuf." type="java.lang.Integer"/>
+                <Column editable="false" title="Colour" type="java.lang.String"/>
+                <Column editable="false" title="Rent Per Day" type="java.lang.Double"/>
+                <Column editable="false" title="Height" type="java.lang.Double"/>
+                <Column editable="false" title="Width" type="java.lang.Double"/>
+                <Column editable="true" title="Lenght" type="java.lang.Double"/>
+                <Column editable="true" title="Guitar Type" type="java.lang.String"/>
+                <Column editable="true" title="Status" type="java.lang.String"/>
+              </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="showallCustomersButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Show Products for Testing"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="showallCustomersButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="24" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Please Click the Show Product Button to view Existing products in System"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel10">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Note : Add Products manually or Click Show products for testing button to add 10 products for testing  "/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

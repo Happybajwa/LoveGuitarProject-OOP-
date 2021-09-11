@@ -74,7 +74,7 @@ public class CustomerRentalHistoryIF extends javax.swing.JInternalFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 12, Short.MAX_VALUE)
+            .addGap(0, 231, Short.MAX_VALUE)
         );
 
         customerHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -150,12 +150,12 @@ public class CustomerRentalHistoryIF extends javax.swing.JInternalFrame {
                         .addGap(517, 517, 517))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(searchButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(customerRentalIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(clearButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(customerRentalIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,14 +184,22 @@ public class CustomerRentalHistoryIF extends javax.swing.JInternalFrame {
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         // TODO add your handling code here:
+        Customer customer = null;
         String customerId = customerRentalIdTextField.getText();
-        Customer customer = DataStore.SearchCustomerById(customerId);
         
+        try{
+        customer = DataStore.SearchCustomerById(customerId);
+       
+         }catch(Exception ex)
+            {
+            if(ex instanceof NumberFormatException)
+            JOptionPane.showMessageDialog(this,ex.getMessage());
+            } 
         if(customer == null)
         {
             JOptionPane.showMessageDialog(this,"Customer Not Found in Record");
         }else
-        {
+                {
                                     DefaultTableModel model = (DefaultTableModel)customerHistoryTable.getModel();
                                     model.setRowCount(0);
                                     Object[] rowData = new Object[6];
@@ -217,7 +225,9 @@ public class CustomerRentalHistoryIF extends javax.swing.JInternalFrame {
                                         }
                                                
                                                 
-                                            } }  
+                                     } 
+                }  
+          
         
     }//GEN-LAST:event_searchButtonActionPerformed
 

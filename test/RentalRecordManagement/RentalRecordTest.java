@@ -136,7 +136,7 @@ public class RentalRecordTest {
         plist.add(p1);
         RentalRecord r = new RentalRecord(plist, d1, d2);
         
-        r.setReturnDueDate(d1);
+        r.setReturnDate(d1);
         assertEquals(d1, r.getRentDate());
        
     }

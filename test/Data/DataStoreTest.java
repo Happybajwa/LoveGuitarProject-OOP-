@@ -41,10 +41,10 @@ public class DataStoreTest {
         ArrayList<Product> p = new ArrayList<>();
         ArrayList<Product> dataStoreList = DataStore.getProducts();
         
-        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "Avaialble","Electric");
+        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "IN_STOCK","Electric");
         DataStore d = new DataStore();
         dataStoreList.clear();
-        d.setProduct(p1);
+        d.setProducts(p1);
         p.add(p1);
         assertEquals(p, DataStore.getProducts());
     }
@@ -53,7 +53,7 @@ public class DataStoreTest {
         ArrayList<Product> p = new ArrayList<>();
         ArrayList<Product> dataStoreList = DataStore.getProducts();
         
-        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "Avaialble","Electric");
+        Product p1 = new Product("101", 10, 10, "White", 10, 10, 10, "IN_STOCK","Electric");
         DataStore d = new DataStore();
         
         dataStoreList.clear();
@@ -67,7 +67,7 @@ public class DataStoreTest {
     public void testGetCustomers() {
          ArrayList<Customer> c = new ArrayList<>();
         DataStore d = new DataStore();
-        Customer c1 = new Customer("Harry","18","AKL","gfjdgjh", "gdh4124");
+        Customer c1 = new Customer("Harry","18","AKL","gfjdgjh", "gdh4124","fuids");
         c.add(c1);
         DataStore.setCustomers(c1);
         assertEquals(c, DataStore.getCustomers());
@@ -91,7 +91,7 @@ public class DataStoreTest {
         plist.add(P1);    
         datastorelist.clear();
         
-        d.setProduct(P1);
+        d.setProducts(P1);
         assertEquals(plist,DataStore.getProducts());
     }
 
@@ -103,7 +103,7 @@ public class DataStoreTest {
           DataStore d = new DataStore();
         ArrayList<Customer> c = DataStore.getCustomers();
         ArrayList<Customer> c1 = new ArrayList<>();
-        Customer c2 = new Customer("Garry","18","AKL","gfjdgjh", "gdh4124");
+        Customer c2 = new Customer("Garry","18","AKL","gfjdgjh", "gdh4124","hfjd");
         c1.add(c2);
         c.clear();
         DataStore.setCustomers(c2);
@@ -115,7 +115,7 @@ public class DataStoreTest {
      */
     @Test
     public void testCheckCustomerExists() {
-        Customer c1 = new Customer("Garry","18","AKL","111", "gdh4124");
+        Customer c1 = new Customer("Garry","18","AKL","111", "gdh4124","dgjhf");
         ArrayList<Customer> customer = DataStore.getCustomers();
         customer.clear();
         DataStore.setCustomers(c1);
@@ -128,42 +128,77 @@ public class DataStoreTest {
 
     @Test
     public void testSearchCustomerByValidId() {
-        Customer c1 = new Customer("Garry","18","AKL","111", "gdh4124");
-        Customer c2 = new Customer("Garry","18","AKL","121", "gdh4124");
+        Customer c1 = new Customer("Garry","18","AKL","111", "gdh4124","bfkhjgds");
+        Customer c2 = new Customer("Garry","18","AKL","121", "gdh4124","dkjhffd");
         
         ArrayList<Customer> list = DataStore.getCustomers();
         list.clear();
         DataStore.setCustomers(c1);
+        try{
         assertEquals(c1, DataStore.SearchCustomerById("111"));
+        }
+        catch(Exception ex)
+        {
+            if(ex instanceof NumberFormatException)
+                    {
+                        System.out.println("Alphabets, Digits, @, and Dot allowed only");
+                    }
+        }
     }
 
       @Test
     public void testSearchCustomerByInvalidId() {
-        Customer c1 = new Customer("Garry","18","AKL","111", "gdh4124");
+        Customer c1 = new Customer("Garry","18","AKL","111", "gdh4124","jsdgfjh");
         ArrayList<Customer> list = DataStore.getCustomers();
         list.clear();
         DataStore.setCustomers(c1);
+        try{
         assertEquals(null, DataStore.SearchCustomerById("121"));
+        }
+        catch(Exception ex)
+        {
+            if(ex instanceof NumberFormatException)
+                    {
+                        System.out.println("Alphabets, Digits, @, and Dot allowed only");
+                    }
+        }
     }
     /**
      * Test of SearchProductbyProductId method, of class DataStore.
      */
     @Test
     public void testSearchProductbyProductId() {
-        Product p1 = new Product("103", 10, 10, "White", 10, 10, 10, "Available","Electric");
+        Product p1 = new Product("103", 10, 10, "White", 10, 10, 10, "IN_STOCK","Electric");
         ArrayList<Product> plist = DataStore.getProducts();
         plist.clear();
         plist.add(p1);
+        try{
         assertEquals(p1.getProductSerialNumber(), DataStore.SearchProductbyProductId("103", "Available").getProductSerialNumber());
+        }catch(Exception ex)
+        {
+                if(ex instanceof NumberFormatException)
+                    {
+                        System.out.println("Alphabets and digits allowed only");
+                    }
+        }
     }
     
      @Test
     public void testSearchProductbyInvalidProductId() {
-        Product p1 = new Product("103", 10, 10, "White", 10, 10, 10, "Available","Electric");
+        Product p1 = new Product("103", 10, 10, "White", 10, 10, 10, "IN_STOCK","Electric");
         ArrayList<Product> plist = DataStore.getProducts();
         plist.clear();
         plist.add(p1);
-        assertEquals(null, DataStore.SearchProductbyProductId("105", "Available"));
+        try{
+        assertEquals(null, DataStore.SearchProductbyProductId("105", "IN_STOCK"));
+        }
+        catch(Exception ex)
+                {
+                    if(ex instanceof NumberFormatException)
+                    {
+                        System.out.println("Alphabets and digits allowed only");
+                    }
+                }
     }
 
     /**
@@ -171,7 +206,7 @@ public class DataStoreTest {
      */
     @Test
     public void testSetProductStatus() {
-        Product p1 = new Product("103", 10, 10, "White", 10, 10, 10, "Available","Electric");
+        Product p1 = new Product("103", 10, 10, "White", 10, 10, 10, "IN_STOCK","Electric");
         DataStore d = new DataStore();
         ArrayList<Product> plist = DataStore.getProducts();
         plist.clear();

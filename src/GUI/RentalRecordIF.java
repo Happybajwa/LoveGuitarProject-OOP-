@@ -28,6 +28,7 @@ Product product = null;
 ArrayList<Product> rentalProducts = new ArrayList<>();
 ArrayList<Product> returnProducts = new ArrayList<>();
 
+
 ReceiptForm jForm = new ReceiptForm();
     
     /**
@@ -35,6 +36,7 @@ ReceiptForm jForm = new ReceiptForm();
      */
     public RentalRecordIF() {
         initComponents();
+        customerDetailsPanel.setVisible(false);
             
     }
 
@@ -53,14 +55,10 @@ ReceiptForm jForm = new ReceiptForm();
         RentalPanel = new javax.swing.JPanel();
         returnRadioButton = new javax.swing.JRadioButton();
         rentradioButton = new javax.swing.JRadioButton();
-        customerNameLale = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         customerRecordTable = new javax.swing.JTable();
-        customerPhoneLable = new javax.swing.JLabel();
-        CustomerNameTextField = new javax.swing.JTextField();
         totalRentTextField = new javax.swing.JTextField();
         customerRentalHistoryLable = new javax.swing.JLabel();
-        customerPhoneTextField = new javax.swing.JTextField();
         totalRentLable = new javax.swing.JLabel();
         returndateLable = new javax.swing.JLabel();
         returnItemDatePicker = new org.jdesktop.swingx.JXDatePicker();
@@ -71,10 +69,6 @@ ReceiptForm jForm = new ReceiptForm();
         productIdLable = new javax.swing.JLabel();
         SearchProductButton = new javax.swing.JButton();
         SearchCustomerButton = new javax.swing.JButton();
-        dateOfBirthTextField = new javax.swing.JTextField();
-        customerdateOfbirthLable = new javax.swing.JLabel();
-        customerAddressTextField = new javax.swing.JTextField();
-        customerAddressLable = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         productListTable = new javax.swing.JTable();
         clearButton = new javax.swing.JButton();
@@ -82,6 +76,17 @@ ReceiptForm jForm = new ReceiptForm();
         jLabel6 = new javax.swing.JLabel();
         customerIdErrorLable = new javax.swing.JLabel();
         productIdErrorLable = new javax.swing.JLabel();
+        customerDetailsPanel = new javax.swing.JPanel();
+        dlTextField = new javax.swing.JTextField();
+        customerAddressTextField = new javax.swing.JTextField();
+        customerPhoneTextField = new javax.swing.JTextField();
+        customerdateOfbirthLable = new javax.swing.JLabel();
+        customerAddressLable = new javax.swing.JLabel();
+        customerAddressLable1 = new javax.swing.JLabel();
+        CustomerNameTextField = new javax.swing.JTextField();
+        customerNameLale = new javax.swing.JLabel();
+        customerPhoneLable = new javax.swing.JLabel();
+        dateOfBirthTextField = new javax.swing.JTextField();
 
         RentalPanel.setBackground(new java.awt.Color(204, 204, 204));
         RentalPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "LoveGuitarRentalRecords", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -108,9 +113,6 @@ ReceiptForm jForm = new ReceiptForm();
             }
         });
 
-        customerNameLale.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        customerNameLale.setText("Customer Name:");
-
         customerRecordTable.setBackground(new java.awt.Color(153, 204, 255));
         customerRecordTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,17 +132,10 @@ ReceiptForm jForm = new ReceiptForm();
         });
         jScrollPane1.setViewportView(customerRecordTable);
 
-        customerPhoneLable.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        customerPhoneLable.setText("Phone Number:");
-
-        CustomerNameTextField.setEditable(false);
-
         totalRentTextField.setEditable(false);
 
         customerRentalHistoryLable.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         customerRentalHistoryLable.setText("Currently rented Products by Customer");
-
-        customerPhoneTextField.setEditable(false);
 
         totalRentLable.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         totalRentLable.setText("Total rent for all items:");
@@ -209,21 +204,6 @@ ReceiptForm jForm = new ReceiptForm();
             }
         });
 
-        dateOfBirthTextField.setEditable(false);
-
-        customerdateOfbirthLable.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        customerdateOfbirthLable.setText("Date Of Birth:");
-
-        customerAddressTextField.setEditable(false);
-        customerAddressTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                customerAddressTextFieldActionPerformed(evt);
-            }
-        });
-
-        customerAddressLable.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        customerAddressLable.setText("Address:");
-
         productListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -274,72 +254,155 @@ ReceiptForm jForm = new ReceiptForm();
         productIdErrorLable.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         productIdErrorLable.setForeground(new java.awt.Color(255, 51, 51));
 
+        customerDetailsPanel.setBackground(new java.awt.Color(204, 204, 204));
+
+        dlTextField.setEditable(false);
+        dlTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dlTextFieldActionPerformed(evt);
+            }
+        });
+
+        customerAddressTextField.setEditable(false);
+        customerAddressTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerAddressTextFieldActionPerformed(evt);
+            }
+        });
+
+        customerPhoneTextField.setEditable(false);
+
+        customerdateOfbirthLable.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        customerdateOfbirthLable.setText("Date Of Birth:");
+
+        customerAddressLable.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        customerAddressLable.setText("Address:");
+
+        customerAddressLable1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        customerAddressLable1.setText("Driver License No.");
+
+        CustomerNameTextField.setEditable(false);
+        CustomerNameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CustomerNameTextFieldActionPerformed(evt);
+            }
+        });
+
+        customerNameLale.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        customerNameLale.setText("Customer Name:");
+
+        customerPhoneLable.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        customerPhoneLable.setText("Phone Number:");
+
+        dateOfBirthTextField.setEditable(false);
+
+        javax.swing.GroupLayout customerDetailsPanelLayout = new javax.swing.GroupLayout(customerDetailsPanel);
+        customerDetailsPanel.setLayout(customerDetailsPanelLayout);
+        customerDetailsPanelLayout.setHorizontalGroup(
+            customerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, customerDetailsPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(customerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(customerNameLale)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, customerDetailsPanelLayout.createSequentialGroup()
+                        .addGroup(customerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, customerDetailsPanelLayout.createSequentialGroup()
+                                .addComponent(customerAddressLable)
+                                .addGap(18, 18, 18))
+                            .addGroup(customerDetailsPanelLayout.createSequentialGroup()
+                                .addComponent(customerPhoneLable)
+                                .addGap(18, 18, 18)))
+                        .addGroup(customerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(dateOfBirthTextField)
+                            .addComponent(CustomerNameTextField)
+                            .addComponent(customerPhoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(customerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(customerdateOfbirthLable)
+                    .addComponent(customerAddressLable1))
+                .addGap(18, 18, 18)
+                .addGroup(customerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(dlTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(customerAddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(214, 214, 214))
+        );
+        customerDetailsPanelLayout.setVerticalGroup(
+            customerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(customerDetailsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(customerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(customerNameLale)
+                    .addComponent(customerAddressLable1)
+                    .addComponent(CustomerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dlTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(customerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(customerDetailsPanelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(customerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(customerAddressLable)
+                            .addComponent(dateOfBirthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(customerDetailsPanelLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(customerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(customerdateOfbirthLable)
+                            .addComponent(customerAddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(customerDetailsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(customerPhoneLable)
+                    .addComponent(customerPhoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout RentalPanelLayout = new javax.swing.GroupLayout(RentalPanel);
         RentalPanel.setLayout(RentalPanelLayout);
         RentalPanelLayout.setHorizontalGroup(
             RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RentalPanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(RentalPanelLayout.createSequentialGroup()
-                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(33, 33, 33)
+                        .addComponent(customerIdLable)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(customerIdErrorLable, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                            .addComponent(customerIdTextField))
+                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(RentalPanelLayout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(dateOfBirthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(RentalPanelLayout.createSequentialGroup()
-                                        .addComponent(customerIdLable)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(customerIdErrorLable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(customerIdTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)))))
-                            .addGroup(RentalPanelLayout.createSequentialGroup()
-                                .addComponent(customerNameLale)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(CustomerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(RentalPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(RentalPanelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(SearchCustomerButton)
-                                    .addGroup(RentalPanelLayout.createSequentialGroup()
-                                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(customerAddressLable)
-                                            .addComponent(customerdateOfbirthLable))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(customerPhoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(customerAddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(339, 339, 339)
+                                .addGap(18, 18, 18)
                                 .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(SearchProductButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RentalPanelLayout.createSequentialGroup()
-                                        .addComponent(productIdLable, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(productIdErrorLable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(ProductIdTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)))))))
+                                    .addComponent(jLabel6)
+                                    .addGroup(RentalPanelLayout.createSequentialGroup()
+                                        .addGap(611, 611, 611)
+                                        .addComponent(SearchProductButton))))
+                            .addGroup(RentalPanelLayout.createSequentialGroup()
+                                .addGap(146, 146, 146)
+                                .addComponent(SearchCustomerButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(productIdLable, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(RentalPanelLayout.createSequentialGroup()
+                                        .addComponent(productIdErrorLable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(141, 141, 141))
+                                    .addComponent(ProductIdTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)))))
                     .addGroup(RentalPanelLayout.createSequentialGroup()
-                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RentalPanelLayout.createSequentialGroup()
-                                    .addComponent(rentradioButton)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(returnRadioButton)
-                                    .addGap(36, 36, 36)
-                                    .addComponent(returndateLable)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(returnItemDatePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RentalPanelLayout.createSequentialGroup()
-                                    .addComponent(customerPhoneLable)
-                                    .addGap(3, 3, 3)))
-                            .addComponent(customerRentalHistoryLable))
-                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(customerDetailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RentalPanelLayout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RentalPanelLayout.createSequentialGroup()
+                                            .addComponent(rentradioButton)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(returnRadioButton)
+                                            .addGap(36, 36, 36)
+                                            .addComponent(returndateLable)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(returnItemDatePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(customerRentalHistoryLable))))
+                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(RentalPanelLayout.createSequentialGroup()
                                 .addGap(83, 83, 83)
                                 .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -349,14 +412,13 @@ ReceiptForm jForm = new ReceiptForm();
                                         .addGap(18, 18, 18)
                                         .addComponent(totalRentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(rentReturnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                        .addComponent(rentReturnButton, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(RentalPanelLayout.createSequentialGroup()
                                 .addGap(59, 59, 59)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(clearButton)))))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         RentalPanelLayout.setVerticalGroup(
             RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -367,57 +429,45 @@ ReceiptForm jForm = new ReceiptForm();
                 .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(customerIdErrorLable, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(productIdErrorLable, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(RentalPanelLayout.createSequentialGroup()
-                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(SearchCustomerButton)
-                            .addComponent(customerIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(customerIdLable))
-                        .addGap(34, 34, 34)
-                        .addComponent(SearchProductButton)
-                        .addGap(86, 86, 86)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE))
-                    .addGroup(RentalPanelLayout.createSequentialGroup()
-                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ProductIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(productIdLable, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(RentalPanelLayout.createSequentialGroup()
+                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(ProductIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(productIdLable, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(customerNameLale)
-                                        .addComponent(CustomerNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(customerAddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(customerAddressLable)))
-                                .addGap(25, 25, 25)
-                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(customerPhoneLable)
-                                    .addComponent(customerPhoneTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(customerdateOfbirthLable)
-                                    .addComponent(dateOfBirthTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(customerRentalHistoryLable)
-                                    .addComponent(jLabel5))
-                                .addGap(2, 2, 2))
+                                .addComponent(SearchProductButton))
                             .addGroup(RentalPanelLayout.createSequentialGroup()
-                                .addGap(108, 108, 108)
-                                .addComponent(clearButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)))
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(returnRadioButton)
-                    .addComponent(returnItemDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(returndateLable)
-                    .addComponent(rentradioButton)
-                    .addComponent(totalRentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(totalRentLable)
-                    .addComponent(rentReturnButton))
-                .addGap(127, 127, 127))
+                                .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(customerIdTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(customerIdLable)
+                                    .addComponent(SearchCustomerButton))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(customerDetailsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(17, 17, 17)
+                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(customerRentalHistoryLable)
+                            .addComponent(jLabel5))
+                        .addGap(2, 9, Short.MAX_VALUE)
+                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2)
+                            .addComponent(jScrollPane1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(RentalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(returnRadioButton)
+                            .addComponent(returnItemDatePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(returndateLable)
+                            .addComponent(rentradioButton)
+                            .addComponent(totalRentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(totalRentLable)
+                            .addComponent(rentReturnButton))
+                        .addGap(49, 49, 49))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RentalPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(clearButton)
+                        .addGap(18, 18, 18))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -443,18 +493,26 @@ ReceiptForm jForm = new ReceiptForm();
 
     private void SearchCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchCustomerButtonActionPerformed
         // TODO add your handling code here:
-        String id =customerIdTextField.getText();
-        customer = DataStore.SearchCustomerById(id);
+        try {   
+                String id =customerIdTextField.getText();
+                customer = DataStore.SearchCustomerById(id);
+            }catch(Exception ex)
+                {
+                    if(ex instanceof NumberFormatException)
+                    JOptionPane.showMessageDialog(this,ex.getMessage());
+                }
         if(customer == null)
         {
             JOptionPane.showMessageDialog(this,"Customer not found");
         }else
-        {
+        {   
+            customerDetailsPanel.setVisible(true);
             CustomerNameTextField.setText(customer.getName());
             customerIdTextField.setText(customer.getCustomerId());
             dateOfBirthTextField.setText(customer.getDateOfBirth());
             customerAddressTextField.setText(customer.getAddress());
             customerPhoneTextField.setText(customer.getPhone());
+            dlTextField.setText(customer.getDriverLicenseNo());
             DefaultTableModel model = (DefaultTableModel)customerRecordTable.getModel();
             model.setRowCount(0);
             ArrayList<RentalRecord> rentalrecordlist = customer.getRentalRecords();
@@ -468,32 +526,43 @@ ReceiptForm jForm = new ReceiptForm();
                 {
                     if(p.getStatus().equals("Rented"))
                     {
-                    returnProducts.add(p);
-                    Object[] rowData = new Object[4];
+                        returnProducts.add(p);
+                        Object[] rowData = new Object[4];
+                        //Simplifying the Dtae so that we can only have- 
+                        //the date in table without time and local zone
+                        SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                        String rentDate = df.format(r.getRentDate());
+                        String returnDate = df.format(r.getReturnDate());
 
-                    SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-                    String rentDate = df.format(r.getRentDate());
-                    String returnDate = df.format(r.getReturnDate());
-
-                    rowData[0]=p.getProductSerialNumber();
-                    rowData[1]=p.getRentPerDay();
-                    rowData[2]=rentDate;
-                    rowData[3]=returnDate;
-                    model.addRow(rowData);
+                        rowData[0]=p.getProductSerialNumber();
+                        rowData[1]=p.getRentPerDay();
+                        rowData[2]=rentDate;
+                        rowData[3]=returnDate;
+                        model.addRow(rowData);
                     }
                 }
             }
+            
             }
-        }
+        } 
+        
+        
+        
+        
     }//GEN-LAST:event_SearchCustomerButtonActionPerformed
 
     private void SearchProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchProductButtonActionPerformed
         // TODO add your handling code here:
 
-        String searchProduct=ProductIdTextField.getText();
-        product=DataStore.SearchProductbyProductId(searchProduct, "Available");
-        
-        
+        try {
+                 String searchProduct=ProductIdTextField.getText();
+                 product=DataStore.SearchProductbyProductId(searchProduct, "IN_STOCK");
+           } 
+            catch(Exception ex)
+            {
+                if(ex instanceof NumberFormatException)
+                JOptionPane.showMessageDialog(this,ex.getMessage());
+            }
         if(product==null)
         {
             JOptionPane.showMessageDialog(this, "Product not found");
@@ -540,10 +609,10 @@ ReceiptForm jForm = new ReceiptForm();
                                     rentalProducts.add(product);
                                     
                             }
-                            }
-            }
-                         
+                }
             
+        }
+    
     }//GEN-LAST:event_SearchProductButtonActionPerformed
 
     private void ProductIdTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProductIdTextFieldActionPerformed
@@ -583,8 +652,12 @@ ReceiptForm jForm = new ReceiptForm();
         }
         else if(rentradioButton.isSelected() && rentalProducts.isEmpty() == false)
         {
+            //Converting Date to long for calculatation of the total Rent
+            //If Hiring is only for one day rent will be charged for one day only
+            //id Hiring is for more then one day so rent will calucated from day one to return date
+            
             Date rentDate = new Date();
-            Date returnDate = returnItemDatePicker.getDate();
+            Date returnDate = returnItemDatePicker.getDate();        
             long diff =  returnDate.getTime() - rentDate.getTime();
             long difference = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
             if(difference == 0)
@@ -619,6 +692,7 @@ ReceiptForm jForm = new ReceiptForm();
                 }           
                 JOptionPane.showMessageDialog(this, "Products have been rented succussfully");
                 
+                //Seeting Fields Empty
                 customerIdTextField.setText("");
                 CustomerNameTextField.setText("");
                 dateOfBirthTextField.setText("");
@@ -629,6 +703,8 @@ ReceiptForm jForm = new ReceiptForm();
                 returnItemDatePicker.setDate(null);
                 DefaultTableModel model = (DefaultTableModel)productListTable.getModel();
                 model.setRowCount(0);
+                //jFrom is for receipt which will pop up in the end with appropirate details 
+                //When product is rented out
                 jForm.setVisible(true);
                 SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");   
                 String returnDate1 = df.format(returnDate);
@@ -667,6 +743,7 @@ ReceiptForm jForm = new ReceiptForm();
                 }           
                 JOptionPane.showMessageDialog(this, "Products have been rented succussfully");
                
+                //Setting Field Empty
                 customerIdTextField.setText("");
                 CustomerNameTextField.setText("");
                 dateOfBirthTextField.setText("");
@@ -677,6 +754,7 @@ ReceiptForm jForm = new ReceiptForm();
                 returnItemDatePicker.setDate(null);
                 productListTable.removeAll();
                 totalRentTextField.setText("");
+                dlTextField.setText("");
                 
                 DefaultTableModel model = (DefaultTableModel)productListTable.getModel();
                 model.setRowCount(0);   
@@ -692,25 +770,39 @@ ReceiptForm jForm = new ReceiptForm();
                 JOptionPane.showMessageDialog(this,"Return Date cannot be in the past.\n Please Select a Valid Return Date.");
             }
         }
-        }else
-            {
+        }else   
+                {
                 if(returnProducts.isEmpty() == false)
-            {
+                {
             
-                for(RentalRecord r: customer.getRentalRecords())
-                    {
-                        ArrayList<Product> plist = r.getProductList();
-                        for(Product p : plist)
-                            {  
-                            if(p.getStatus().equals("Rented"))
-                            p.setStatus("Available");
-                            JOptionPane.showMessageDialog(this, "Product has been returned. Thank You\n"+p.getStatus());
+                    for(RentalRecord r: customer.getRentalRecords())
+                        {       
+                            //Reutrn Product Method
+                            //NOte all products in list/Table will be returned same time
+                            ArrayList<Product> plist = r.getProductList();
+                            
+                            for(Product p : plist)
+                                {    
+                                    if(p.getStatus().equals("Rented"))
+                                    p.setStatus("IN_STOCK");     
+                                    
+                                }
+                        }       
+                            JOptionPane.showMessageDialog(this, "Product has been returned. Thank You"); 
+                            customerIdTextField.setText("");
+                            CustomerNameTextField.setText("");
+                            dateOfBirthTextField.setText("");
+                            customerAddressTextField.setText("");
+                            customerPhoneTextField.setText("");
                             returnItemDatePicker.setDate(null);
-                            }
-                    }      
-            }
-        }
-  
+                            totalRentTextField.setText("");
+                            dlTextField.setText("");
+                            returnItemDatePicker.setDate(null);
+                            DefaultTableModel model = (DefaultTableModel)customerRecordTable.getModel();
+                            model.setRowCount(0);   
+                            
+                } 
+            }  
     }//GEN-LAST:event_rentReturnButtonActionPerformed
 
     private void returnItemDatePickerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnItemDatePickerActionPerformed
@@ -736,12 +828,13 @@ ReceiptForm jForm = new ReceiptForm();
     }//GEN-LAST:event_customerIdTextFieldKeyTyped
 
     private void customerIdTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerIdTextFieldKeyPressed
-        // TODO add your handling code here:
+        // Validation for Customer ID text Field
         customerIdErrorLable.setText("");
         char c = evt.getKeyChar();
         String value = " ";
         value = c+"";
-        if(Character.isAlphabetic(c) || Character.isDigit(c) || Character.isISOControl(c) || Character.isLetter(c) || Character.isWhitespace(c) || value.equals("@") || value.equals("."))
+        if(Character.isAlphabetic(c) || Character.isDigit(c) || Character.isISOControl(c) || 
+           Character.isLetter(c) || Character.isWhitespace(c) || value.equals("@") || value.equals(".")) 
         {
             customerIdTextField.setEditable(true);
         }else
@@ -752,11 +845,12 @@ ReceiptForm jForm = new ReceiptForm();
     }//GEN-LAST:event_customerIdTextFieldKeyPressed
 
     private void ProductIdTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ProductIdTextFieldKeyPressed
-        // TODO add your handling code here:
+        // Validation of Product ID TextField
           productIdErrorLable.setText("");
           char c = evt.getKeyChar();
      
-        if(Character.isAlphabetic(c) || Character.isDigit(c) || Character.isISOControl(c) || Character.isLetter(c) || Character.isWhitespace(c))
+        if(Character.isAlphabetic(c) || Character.isDigit(c) || 
+           Character.isISOControl(c) || Character.isLetter(c) || Character.isWhitespace(c))
         {
             ProductIdTextField.setEditable(true);
         }else
@@ -765,6 +859,14 @@ ReceiptForm jForm = new ReceiptForm();
             ProductIdTextField.setEditable(false);
         }
     }//GEN-LAST:event_ProductIdTextFieldKeyPressed
+
+    private void dlTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dlTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dlTextFieldActionPerformed
+
+    private void CustomerNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerNameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CustomerNameTextFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -776,7 +878,9 @@ ReceiptForm jForm = new ReceiptForm();
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton clearButton;
     private javax.swing.JLabel customerAddressLable;
+    private javax.swing.JLabel customerAddressLable1;
     private javax.swing.JTextField customerAddressTextField;
+    private javax.swing.JPanel customerDetailsPanel;
     private javax.swing.JLabel customerIdErrorLable;
     private javax.swing.JLabel customerIdLable;
     private javax.swing.JTextField customerIdTextField;
@@ -787,6 +891,7 @@ ReceiptForm jForm = new ReceiptForm();
     private javax.swing.JLabel customerRentalHistoryLable;
     private javax.swing.JLabel customerdateOfbirthLable;
     private javax.swing.JTextField dateOfBirthTextField;
+    private javax.swing.JTextField dlTextField;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
