@@ -188,7 +188,7 @@ public class CustomerRentalHistoryIF extends javax.swing.JInternalFrame {
         String customerId = customerRentalIdTextField.getText();
         
         try{
-        customer = DataStore.SearchCustomerById(customerId);
+        customer = DataStore.SearchCustomerById(customerId.trim());
        
          }catch(Exception ex)
             {
