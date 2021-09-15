@@ -73,6 +73,16 @@ public class DataStoreTest {
         assertEquals(c, DataStore.getCustomers());
     }
 
+    @Test
+    public void testGetCustomersCountZero() {
+         ArrayList<Customer> c = new ArrayList<>();
+        DataStore d = new DataStore();
+        Customer c1 = new Customer("Harry","18","AKL","gfjdgjh", "gdh4124","fuids");
+        ArrayList<Customer> CustomerList = DataStore.getCustomers();
+        c.add(c1);
+        DataStore.setCustomers(c1);
+        assertEquals(CustomerList.size(), DataStore.getCustomers().size());
+    }
     /**
      * Test of getEmployees method, of class DataStore.
      */

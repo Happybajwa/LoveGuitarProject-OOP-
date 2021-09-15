@@ -283,7 +283,7 @@ public class CustomerIF extends javax.swing.JInternalFrame {
         String driver = dlTextField.getText();
         
             
-        Customer c = new Customer(name, birth,address,id,phone, driver);
+        Customer c = new Customer(name, birth,address,id.trim(),phone, driver);
         boolean found = DataStore.checkCustomerExists(c);
         if(found == true)
         {

@@ -1302,7 +1302,7 @@ DataStore dataStore = new DataStore();
         
         
        
-        Product product=new Product(productserial,year,rent,colour,length,width,height,status,type);
+        Product product=new Product(productserial.trim(),year,rent,colour,length,width,height,status,type);
         boolean found = DataStore.checkProductExists(product);
         if(found == true)
         {
@@ -1544,16 +1544,16 @@ DataStore dataStore = new DataStore();
     private void showallCustomersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showallCustomersButtonActionPerformed
         // Adding Products for testing purpose
        
-        Product p1 = new Product("0101", 2019, 40, "White", 40, 60, 40, "IN_STOCK", "ELECTRIC");
-        Product p2 = new Product("0102", 2018, 40, "Orange", 40, 60, 40, "IN_STOCK", "ACOUSTIC");
-        Product p3 = new Product("0103", 2020, 40, "Black", 40, 60, 40, "IN_STOCK", "ACOUSTIC");
-        Product p4 = new Product("0104", 2021, 40, "Purple", 40, 60, 40, "IN_STOCK", "ELECTRIC");
-        Product p5 = new Product("0105", 2021, 40, "White", 40, 60, 40, "IN_STOCK", "Electric");
-        Product p6 = new Product("0106", 2017, 40, "Green", 40, 60, 40, "IN_STOCK", "ACOUSTIC");
-        Product p7 = new Product("0107", 2016, 40, "Yellow", 40, 60, 40, "IN_STOCK", "ACOUSTIC");
-        Product p8 = new Product("0108", 2018, 40, "White", 40, 60, 40, "IN_STOCK", "Electric");
-        Product p9 = new Product("0109", 2020, 40, "Silver", 40, 60, 40, "IN_STOCK", "Electric");
-        Product p10 = new Product("0110", 2021, 40, "Yellow", 40, 60, 40, "IN_STOCK", "ACOUSTIC");
+        Product p1 = new Product("0101", 2019, 100, "White", 40, 60, 40, "IN_STOCK", "ELECTRIC");
+        Product p2 = new Product("0102", 2018, 100, "Orange", 40, 60, 40, "IN_STOCK", "ACOUSTIC");
+        Product p3 = new Product("0103", 2020, 80, "Black", 40, 60, 40, "IN_STOCK", "ACOUSTIC");
+        Product p4 = new Product("0104", 2021, 80, "Purple", 40, 60, 40, "IN_STOCK", "ELECTRIC");
+        Product p5 = new Product("0105", 2021, 150, "White", 40, 60, 40, "IN_STOCK", "Electric");
+        Product p6 = new Product("0106", 2017, 150, "Green", 40, 60, 40, "IN_STOCK", "ACOUSTIC");
+        Product p7 = new Product("0107", 2016, 120, "Yellow", 40, 60, 40, "IN_STOCK", "ACOUSTIC");
+        Product p8 = new Product("0108", 2018, 80, "White", 40, 60, 40, "IN_STOCK", "Electric");
+        Product p9 = new Product("0109", 2020, 80, "Silver", 40, 60, 40, "IN_STOCK", "Electric");
+        Product p10 = new Product("0110", 2021, 100, "Yellow", 40, 60, 40, "IN_STOCK", "ACOUSTIC");
         
         if(DataStore.getProducts().isEmpty())
         {
